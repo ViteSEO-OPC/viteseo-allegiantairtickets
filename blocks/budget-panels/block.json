@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "childtheme/budget-panels",
+  "title": "Budget Summary Panels",
+  "category": "design",
+  "icon": "columns",
+  "description": "Two-column budget panels with title, copy, subtitle, bullets, footer, and side decor.",
+  "keywords": ["budget", "summary", "columns", "panels"],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "spacing": {
+      "padding": true,
+      "margin": ["top", "bottom"]
+    },
+    "color": {
+      "background": false,
+      "text": false,
+      "link": false
+    }
+  },
+  "style": "file:./style.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "number",
+      "default": 2
+    },
+
+    "headingIconUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "headingIconAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "headingIconAlign": {
+      "type": "string",
+      "default": "none"
+    },
+
+    "panels": {
+      "type": "array",
+      "default": [
+        {
+          "title": "",
+          "text": "",
+          "subTitle": "",
+          "list": [],
+          "footer": "",
+          "backgroundColor": ""
+        },
+        {
+          "title": "",
+          "text": "",
+          "subTitle": "",
+          "list": [],
+          "footer": "",
+          "backgroundColor": ""
+        }
+      ]
+    },
+    "decor": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "example": {
+    "attributes": {
+      "backgroundColor": "#FDCD3B",
+      "columns": 2,
+
+      "headingIconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+      "headingIconAlt": "Budget badge",
+      "headingIconAlign": "left",
+
+      "panels": [
+        {
+          "title": "Peak Season Colors, Cool Weather & Food Adventures",
+          "text": "Autumn ...",
+          "subTitle": "Japan Climate Guide — Autumn Weather",
+          "list": [
+            {"text": "15°C–25°C (59°F–77°F)"},
+            {"text": "Dry and comfortable"},
+            {"text": "Occasional typhoons in early September"}
+          ],
+          "subTitle2": "Why autumn stands out",
+          "list2": [
+            {"text": "Stunning koyo (fall foliage) viewing"},
+            {"text": "Seasonal foods: roasted sweet potatoes, mushrooms, chestnuts"},
+            {"text": "Comfortable sightseeing temperatures"},
+            {"text": "Fewer crowds than spring"}
+          ],
+          "footer": "Many travelers prefer autumn ...",
+          "backgroundColor": "#fff"
+        }
+      ],
+
+      "decor": [
+        {
+          "side": "left",
+          "position": "center",
+          "url": "",
+          "alt": "Decor left"
+        },
+        {
+          "side": "right",
+          "position": "center",
+          "url": "",
+          "alt": "Decor right"
+        }
+      ]
+    }
+  },
+  "textdomain": "childtheme"
+}

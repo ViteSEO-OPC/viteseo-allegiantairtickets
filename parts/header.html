@@ -1,0 +1,91 @@
+<!-- ✅ MAIN NAVBAR -->
+<header class="page-header">
+
+    <nav id="navbar" class="navbar navbar-expand-1462 navbar-light">
+      <div class="container py-2">
+
+        <a class="brand-link d-flex align-items-center" href="/">
+          <img class="brand-logo" src="/path/to/logo.webp" alt="IlegiantsAir Tickets" />
+        </a>
+
+        <button id="navBurger" class="navbar-toggler ms-auto" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarMain"
+          aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-xxl-auto mb-2 mt-2 mt-xxl-0 gap-2 mb-xxl-0">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/community/">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="/travel-intelligence/">Travel Savvy</a></li>
+            <li class="nav-item dropdown" data-bs-auto-close="outside">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                Destination
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/destination/region/">Region</a></li>
+                <li><a class="dropdown-item" href="/destination/south-korea/">South Korea</a></li>
+                <li><a class="dropdown-item" href="/destination/japan/">Japan</a></li>
+                <li><a class="dropdown-item" href="/destination/thailand/">Thailand</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+</header>
+<script>
+(function(){
+  const MOBILE_MAX = 1461;
+  const STICKY_AT  = 150;
+
+  const navbar   = document.getElementById('navbar');
+  const collapse = document.getElementById('navbarMain');
+
+  function syncCollapsed(){
+    // start closed in all “collapsed” ranges
+    if (window.innerWidth <= MOBILE_MAX){
+      collapse.classList.remove('show');
+      navbar.classList.remove('menu-open');
+    } else {
+      // desktop: rely on flex (no .show)
+      collapse.classList.remove('show');
+      navbar.classList.remove('menu-open');
+    }
+  }
+
+  function syncOnScroll(){
+    const y = window.pageYOffset || document.documentElement.scrollTop;
+    if (y > STICKY_AT){
+      navbar.classList.add('is-sticky');
+      navbar.classList.remove('menu-open');
+    } else {
+      navbar.classList.remove('is-sticky');
+      if (collapse.classList.contains('show')) navbar.classList.add('menu-open');
+      else navbar.classList.remove('menu-open');
+    }
+  }
+
+  // collapse open/close -> header background management
+  collapse.addEventListener('show.bs.collapse', () => {
+    if (!navbar.classList.contains('is-sticky')) navbar.classList.add('menu-open');
+  });
+  collapse.addEventListener('hidden.bs.collapse', () => {
+    navbar.classList.remove('menu-open');
+  });
+
+  // init + listeners
+  document.addEventListener('DOMContentLoaded', () => { syncCollapsed(); syncOnScroll(); });
+  window.addEventListener('resize', () => { clearTimeout(window._nav_r); window._nav_r = setTimeout(syncCollapsed, 120); }, { passive: true });
+  window.addEventListener('scroll', syncOnScroll, { passive: true });
+})();
+</script>
+
+
+
+
