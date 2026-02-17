@@ -60,7 +60,8 @@ header.wp-block-template-part,
   text-decoration:none; color:inherit;
 }
 .brand-logo{
-  height:clamp(28px,4.5vw,36px); width:auto; display:block;
+  height:clamp(32px,5vw,44px); width:auto; display:block;
+  vertical-align:middle;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.4)) drop-shadow(0 0 2px rgba(0,0,0,.2));
 }
 
