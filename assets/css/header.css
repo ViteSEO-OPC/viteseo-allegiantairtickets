@@ -25,7 +25,7 @@ header.wp-block-template-part {
   top: 0;
   z-index: 10000;
   overflow: visible;
-  background: transparent; 
+  background: #FDCD3B; 
 }
 
 /* Your existing navbar rules still apply */
@@ -33,11 +33,8 @@ header.wp-block-template-part {
   position: sticky;
   top: 0;
   z-index: 10001;
+  background-color: #FDCD3B;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-body.scrolled #navbar{
-  background: #FDCD3B;
 }
 .admin-bar #navbar,
 .admin-bar header.wp-block-template-part { top: 32px; }
@@ -62,11 +59,6 @@ body.scrolled #navbar{
 }
 .brand-logo{
   height:clamp(28px,4.5vw,36px); width:auto; display:block;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,.45)) drop-shadow(0 0 6px rgba(0,0,0,.25));
-  transition: filter .3s ease;
-}
-.is-sticky .brand-logo,
-.menu-open .brand-logo{
   filter: drop-shadow(0 1px 2px rgba(0,0,0,.15));
 }
 
@@ -218,9 +210,9 @@ body.scrolled #navbar{
   animation: slideDown 0.35s ease-out;
 }
 
-/* Mobile menu open = white */
+/* Mobile menu open */
 .navbar.menu-open {
-  background-color: #fff;
+  background-color: #FDCD3B;
   box-shadow: 0 5px 16px rgba(0,0,0,0.1);
 }
 
