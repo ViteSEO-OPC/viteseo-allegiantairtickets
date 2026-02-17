@@ -259,7 +259,7 @@
 
               <?php if ($buttonText !== ''): ?>
                 <?= render_block([
-                  'blockName'   => 'allegiantairtickets/cta-bounce',
+                  'blockName'   => 'viteseo-allegiantairtickets/cta-bounce',
                   'attrs'       => [
                     'text'        => $buttonText,
                     'url'         => ($buttonUrl ?: '#'),
@@ -277,7 +277,7 @@
                 $btn2Accent = $button2Accent !== '' ? $button2Accent : $buttonAccent;
               ?>
                 <?= render_block([
-                  'blockName'   => 'allegiantairtickets/cta-bounce',
+                  'blockName'   => 'viteseo-allegiantairtickets/cta-bounce',
                   'attrs'       => [
                     'text'        => $button2Text,
                     'url'         => ($button2Url ?: '#'),

@@ -1,5 +1,5 @@
 <?= render_block([
-    'blockName'   => 'allegiantairtickets/cta-bounce',
+    'blockName'   => 'viteseo-allegiantairtickets/cta-bounce',
     'attrs'       => [
     'text'   => $buttonText,
     'url'    => $buttonUrl,
@@ -10,7 +10,7 @@
     'innerContent' => []
 ]); ?>
 
-<!-- wp:allegiantairtickets/cta-bounce {
+<!-- wp:viteseo-allegiantairtickets/cta-bounce {
     "text": "Write a Post",
     "url": "/community/submit-post/",
     "accent": "#FD593C",

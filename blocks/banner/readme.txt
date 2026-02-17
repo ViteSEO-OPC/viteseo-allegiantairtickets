@@ -1,4 +1,4 @@
-<!-- wp:allegiantairtickets/banner {
+<!-- wp:viteseo-allegiantairtickets/banner {
         "align":"full",
         "title":"Top Japanese Food Experiences They Can’t Miss",
         "tagline":"Japanese cuisine invites travelers to savor a world where flavor meets tradition and creativity. From delicate sushi to sizzling street eats, every bite reveals the artistry and soul of Japan’s culture.",

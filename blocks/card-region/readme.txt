@@ -5,8 +5,8 @@
     "heading":"Go Where the Story Takes You",
     "subheading":"From South Korea to Thailand to Japan, discover destinations packed with culture, fun, and flights that won’t break your budget.",
     "decor":[
-      { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png", "alt":"left motif", "side":"left" },
-       { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png", "alt":"right motif", "side":"right" }
+      { "url":"/wp-content/themes/viteseo-allegiantairtickets/assets/images/arrow-left.png", "alt":"left motif", "side":"left" },
+       { "url":"/wp-content/themes/viteseo-allegiantairtickets/assets/images/arrow-right.png", "alt":"right motif", "side":"right" }
     ],
     "items":[
       { "title":"Thailand","excerpt":"Temples, markets, islands.","imageUrl":"https://picsum.photos/640/800?random=31","buttonText":"Explore Thailand","buttonUrl":"#"},

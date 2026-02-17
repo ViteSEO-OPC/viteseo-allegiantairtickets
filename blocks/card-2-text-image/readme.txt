@@ -3,8 +3,8 @@
     "imagePosition":"left",
     "backgroundColor":"#ffffff",
     "decor":[
-      { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png", "alt":"left motif", "side":"left" },
-       { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png", "alt":"right motif", "side":"right" }
+      { "url":"/wp-content/themes/viteseo-allegiantairtickets/assets/images/arrow-left.png", "alt":"left motif", "side":"left" },
+       { "url":"/wp-content/themes/viteseo-allegiantairtickets/assets/images/arrow-right.png", "alt":"right motif", "side":"right" }
     ],
     "headline":"Connect, Share & Inspire",
     "paragraphOne":"Join a community of curious explorers who swap stories, share shortcuts, and plan spontaneous adventures together.",

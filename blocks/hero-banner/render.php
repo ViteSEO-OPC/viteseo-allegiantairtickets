@@ -104,7 +104,7 @@ $animate  = $attrs['animation'] ? 'true' : 'false';
         <div class="hero-banner__ctas hero-banner__ctas--<?php echo esc_attr($cta_layout); ?>">
           <?php if ( $cta_text ) : ?>
             <?= render_block([
-              'blockName'  => 'allegiantairtickets/cta-bounce',
+              'blockName'  => 'viteseo-allegiantairtickets/cta-bounce',
               'attrs'      => [ 'text' => $cta_text, 'url' => ($cta_url ?: '#'), 'accent' => ($attrs['accent'] ?? '#FD593C') ],
               'innerBlocks'=> [], 'innerHTML' => '', 'innerContent' => []
             ]); ?>
@@ -112,7 +112,7 @@ $animate  = $attrs['animation'] ? 'true' : 'false';
 
           <?php if ( $cta2_text ) : ?>
             <?= render_block([
-              'blockName'  => 'allegiantairtickets/cta-bounce',
+              'blockName'  => 'viteseo-allegiantairtickets/cta-bounce',
               'attrs'      => [ 'text' => $cta2_text, 'url' => ($cta2_url ?: '#'), 'accent' => $cta2_accent ],
               'innerBlocks'=> [], 'innerHTML' => '', 'innerContent' => []
             ]); ?>

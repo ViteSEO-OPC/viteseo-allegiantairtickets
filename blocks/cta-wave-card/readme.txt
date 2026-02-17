@@ -1,5 +1,5 @@
 <?= render_block([
-    'blockName'   => 'allegiantairtickets/cta-wave-card',
+    'blockName'   => 'viteseo-allegiantairtickets/cta-wave-card',
     'attrs'       => [
     'text'    => $btnTxt,
     'url'     => $btnUrl,

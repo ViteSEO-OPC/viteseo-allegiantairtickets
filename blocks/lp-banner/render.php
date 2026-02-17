@@ -143,7 +143,7 @@ $motion_en    = ! empty( $attrs['motionEnabled'] ) ? '1' : '0';
             <?php if ( $cta_text ) : ?>
               <?php
               echo render_block( [
-                'blockName'   => 'allegiantairtickets/cta-bounce',
+                'blockName'   => 'viteseo-allegiantairtickets/cta-bounce',
                 'attrs'       => [
                   'text'   => $cta_text,
                   'url'    => ( $cta_url ?: '#' ),
@@ -159,7 +159,7 @@ $motion_en    = ! empty( $attrs['motionEnabled'] ) ? '1' : '0';
             <?php if ( $cta2_text ) : ?>
               <?php
               echo render_block( [
-                'blockName'   => 'allegiantairtickets/cta-bounce',
+                'blockName'   => 'viteseo-allegiantairtickets/cta-bounce',
                 'attrs'       => [
                   'text'   => $cta2_text,
                   'url'    => ( $cta2_url ?: '#' ),

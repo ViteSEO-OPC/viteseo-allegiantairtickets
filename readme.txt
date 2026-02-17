@@ -1,4 +1,4 @@
-== allegiantairtickets ==
+== viteseo-allegiantairtickets ==
 
 Contributors: 
 Requires at least: 6.8
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-allegiantairtickets
+viteseo-allegiantairtickets
 
 
 == Changelog ==
@@ -21,8 +21,8 @@ allegiantairtickets
 
 == Copyright ==
 
-allegiantairtickets WordPress Theme, (C) 2025 
-allegiantairtickets is distributed under the terms of the GNU GPL.
+viteseo-allegiantairtickets WordPress Theme, (C) 2025 
+viteseo-allegiantairtickets is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -35,5 +35,5 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 
-allegiantairtickets is a child theme of Twenty Twenty-Five (https://wordpress.org/themes/twentytwentyfive/), (C) the WordPress team, [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
+viteseo-allegiantairtickets is a child theme of Twenty Twenty-Five (https://wordpress.org/themes/twentytwentyfive/), (C) the WordPress team, [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 

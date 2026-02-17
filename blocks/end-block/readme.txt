@@ -20,7 +20,7 @@
         "title":"Ready to Travel Smarter and Explore Further",
         "subheading":"Travel preparation goes beyond packing; it's about embracing a confident, adventure-ready mindset. With the right tips and tools, travelers can plan boldly, move freely, and enjoy every destination with ease and purpose. \n\n Start by downloading the travel checklist, dive into the detailed guides across the blog, and take the next step toward smarter, more meaningful adventures.",
         "decor":[
-            { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png", "alt":"right motif", "side":"left" }
+            { "url":"/wp-content/themes/viteseo-allegiantairtickets/assets/images/arrow-left.png", "alt":"right motif", "side":"left" }
         ],
         "enterAnim":"up",
         "buttons":[

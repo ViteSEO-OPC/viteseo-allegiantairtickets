@@ -114,14 +114,14 @@ add_action( 'wp_enqueue_scripts', function () {
 
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style(
-    'allegiantairtickets-outfit',
+    'viteseo-allegiantairtickets-outfit',
     'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap',
     [],
     null
   );
 });
 add_action('enqueue_block_editor_assets', function () {
-  wp_enqueue_style('allegiantairtickets-outfit-editor', 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap', [], null);
+  wp_enqueue_style('viteseo-allegiantairtickets-outfit-editor', 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap', [], null);
 });
 
 add_filter( 'template_include', function( $template ) {
