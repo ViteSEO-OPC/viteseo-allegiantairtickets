@@ -18,7 +18,7 @@
   gap: var(--panel-gap);
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   position: relative;
   z-index: 1;   /* content above side decor */
 }
@@ -139,8 +139,8 @@
 }
 
 .safety-panel__item-icon {
-  width: 82px;
-  height: 82px;
+  width: clamp(56px, 8vw, 82px);
+  height: clamp(56px, 8vw, 82px);
   flex-shrink: 0;
   align-self: center;
 }

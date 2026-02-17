@@ -32,7 +32,7 @@
 .card-about__item{
   margin-top: 25px;
   flex: 1 1 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
-  min-width: 260px; max-width: 480px; display:flex;
+  min-width: min(260px, 100%); max-width: 480px; display:flex;
 }
 .card-about__card{
   background: var(--card-bg); border-radius: var(--radius);

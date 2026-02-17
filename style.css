@@ -28,7 +28,7 @@ Tags:
   /* Utility */
   --toc-top: 96px;
 
-  --section-mt: 125px;
+  --section-mt: clamp(60px, 10vw, 125px);
 }
 
 /* Global reset for the top edge */
@@ -75,15 +75,12 @@ header.wp-block-template-part { margin: 0; padding: 0; }
 .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
   max-width: none;
 }
-/* Kill accidental horizontal scroll from decorative elements */
-/* html,
-body {
-  overflow-x: hidden;
-}
+/* Prevent horizontal scroll from decorative elements */
+html { overflow-x: clip; }
+body { overflow-x: clip; }
 
-.wp-site-blocks {
-  overflow-x: hidden;
-} */
+/* Global responsive image safety net */
+img, video, svg, canvas { max-width: 100%; height: auto; }
 
 
 /* contact page */
@@ -97,7 +94,7 @@ body {
 }
 .contact-split {
   display: grid;
-  grid-template-columns: minmax(420px, 2fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(min(420px, 100%), 2fr) minmax(min(280px, 100%), 1fr);
   gap: 2.5rem 2rem;
   align-items: center;
 }
@@ -127,7 +124,7 @@ body {
   background: #fff;
   border: none !important;
   border-radius: 32px !important;
-  padding: 42px;
+  padding: clamp(20px, 4vw, 42px);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 .card + .card {
@@ -390,19 +387,19 @@ body {
 }
 
 .logo-img {
-  width: 160px;
+  width: min(160px, 100%);
   height: auto;
   margin: 0;
 }
 
 .logo-img-jp {
-  width: 100px;
+  width: min(100px, 100%);
   height: auto;
   margin: 0;
 }
 
 .logo-img-kr {
-  width: 240px;
+  width: min(240px, 100%);
   height: auto;
   margin: 0;
 }

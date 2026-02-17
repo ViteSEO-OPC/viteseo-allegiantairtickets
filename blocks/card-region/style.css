@@ -39,7 +39,7 @@
 .card-region.is-carousel .card-region__track{
   display:grid;
   grid-auto-flow:column;
-  grid-auto-columns:minmax(260px, calc(100% / var(--cols)));
+  grid-auto-columns:minmax(min(260px, 85vw), calc(100% / var(--cols)));
   grid-template-columns:none;
   overflow-x:auto;
   overscroll-behavior-x:contain;
@@ -79,7 +79,7 @@
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
-  padding:1rem 3rem;
+  padding:1rem clamp(1rem, 4vw, 3rem);
   min-height:clamp(110px, 40%, 120px);   /* ensures visible band */
   background:rgba(0,0,0,.35);            /* same as blog card */
   color:#fff;

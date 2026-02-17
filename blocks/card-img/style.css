@@ -342,7 +342,7 @@
     grid-column: 1 / -1; /* span both columns */
     justify-self: center; /* center within the row */
     width: calc(50% - 12px); /* match one column width (gap is 24px) */
-    max-width: 640px; /* safety cap */
+    max-width: min(640px, 100%); /* safety cap */
   }
   .food-card__media {
     flex: 0 0 auto;

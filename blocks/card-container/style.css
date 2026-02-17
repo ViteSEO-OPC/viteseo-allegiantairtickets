@@ -26,7 +26,7 @@
 .card-rail__grid {
   display: grid;
   grid-template-columns: repeat(var(--cr-cols, 2), minmax(0, 1fr));
-  gap: 62px;
+  gap: clamp(24px, 5vw, 62px);
   align-items: stretch;
   
 }

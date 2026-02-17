@@ -3,7 +3,7 @@
   position: relative;
   padding-left: var(--page-gutter-left, 1rem);
   padding-right: var(--page-gutter-right, 1rem);
-  padding-bottom: 200px;
+  padding-bottom: clamp(60px, 15vw, 200px);
   overflow-x: clip; /* guardrail against overflow */
 }
 
@@ -14,7 +14,7 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: clamp(1rem, 4vw, 3rem);
-  padding: 0 7em;
+  padding: 0 clamp(1rem, 5vw, 7em);
 }
 
 /* Copy */

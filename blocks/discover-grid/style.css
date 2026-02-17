@@ -22,7 +22,7 @@
 .discover-grid__head-main {
   flex: 0 0 100%;
   width: 100%;
-  min-width: 260px;
+  min-width: min(260px, 100%);
 }
 
 .discover-grid__search-wrap {
@@ -126,7 +126,7 @@
 }
 
 .discover-grid__cat-select {
-  min-width: 220px;
+  min-width: min(220px, 100%);
   padding: 0.4rem 1.1rem;
   border-radius: 999px;
   border: 1px solid #dddddd;

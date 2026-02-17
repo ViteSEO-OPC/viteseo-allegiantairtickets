@@ -107,7 +107,7 @@
     background: transparent;
     padding: 0 10px;
     font-size: 15px;
-    width: 200px;
+    width: min(200px, 100%);
     color: #333;
     font-family: inherit;
 }
@@ -363,7 +363,7 @@
   position: relative;
 }
 .place-modal__dialog.budget-dialog {
-    width: 350px;
+    width: min(350px, 90vw);
     text-align: center;
 }
 .place-modal__close {
@@ -410,7 +410,7 @@
     top: 20px;      /* Match toolbar top offset */
     left: 20px;     /* Match toolbar left offset */
     bottom: 30px;   /* Match bottom controls offset */
-    width: 320px;
+    width: min(320px, calc(100vw - 40px));
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
@@ -434,7 +434,7 @@
     position: absolute;
     top: 20px;
     bottom: 30px;
-    width: 320px;
+    width: min(320px, calc(100vw - 40px));
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
