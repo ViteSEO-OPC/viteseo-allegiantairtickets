@@ -1,7 +1,7 @@
 <!-- wp:childtheme/card-2-text-image-responsive {
         "align": "wide",
         "imagePosition": "right",
-        "headingIconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+        "headingIconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
         "headingIconAlt": "Japan badge",
         "headingIconAlign": "left",
 
@@ -30,8 +30,8 @@
         ],
 
         "decor":[
-            { "url":"/wp-content/themes/ilegiants/assets/images/decor-left-red-jp.png", "alt":"left motif", "side":"left" },
-            { "url":"/wp-content/themes/ilegiants/assets/images/decor-right-yellow-jp.png", "alt":"right motif", "side":"right" }
+            { "url":"/wp-content/themes/allegiantairtickets/assets/images/decor-left-red-jp.png", "alt":"left motif", "side":"left" },
+            { "url":"/wp-content/themes/allegiantairtickets/assets/images/decor-right-yellow-jp.png", "alt":"right motif", "side":"right" }
         ],
 
         "footerText": "Choosing a travel season based on these highlights allows visitors to align their interests with Japan’s dynamic landscapes.",

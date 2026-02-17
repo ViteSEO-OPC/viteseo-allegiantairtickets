@@ -1,5 +1,5 @@
 /* Shell */
-.wp-block-ilegiants-banner,
+.wp-block-allegiantairtickets-banner,
 .banner-strip{
   position: relative;
   width: 100%;
@@ -10,9 +10,9 @@
 }
 
 /* Full / wide */
-.wp-block-ilegiants-banner.alignfull,
+.wp-block-allegiantairtickets-banner.alignfull,
 .banner-strip.alignfull,
-.wp-block-ilegiants-banner.alignwide,
+.wp-block-allegiantairtickets-banner.alignwide,
 .banner-strip.alignwide{
   width: 100%;
   max-width: 100vw;

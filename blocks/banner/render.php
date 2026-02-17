@@ -100,7 +100,7 @@ $title_shadow = ! empty( $attrs['titleShadow'] ) ? ' has-title-shadow' : '';
           <?php if ( $cta_text ) : ?>
             <?php
             echo render_block([
-              'blockName'   => 'ilegiants/cta-bounce',
+              'blockName'   => 'allegiantairtickets/cta-bounce',
               'attrs'       => [
                 'text'        => $cta_text,
                 'url'         => ( $cta_url ?: '#' ),
@@ -118,7 +118,7 @@ $title_shadow = ! empty( $attrs['titleShadow'] ) ? ' has-title-shadow' : '';
           <?php if ( $cta2_text ) : ?>
             <?php
             echo render_block([
-              'blockName'   => 'ilegiants/cta-bounce',
+              'blockName'   => 'allegiantairtickets/cta-bounce',
               'attrs'       => [
                 'text'        => $cta2_text,
                 'url'         => ( $cta2_url ?: '#' ),

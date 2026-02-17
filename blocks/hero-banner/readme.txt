@@ -1,5 +1,5 @@
 
-<!-- wp:ilegiants/hero-banner {
+<!-- wp:allegiantairtickets/hero-banner {
   "align":"full",
   "title":"Travel Smarter, Wander Freely",
   "tagline":"Your travel buddy for smarter routes, cool hacks, and stories that make you say, “Wait, I can do that?!”",

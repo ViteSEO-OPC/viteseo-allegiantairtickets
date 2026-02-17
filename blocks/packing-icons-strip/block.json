@@ -78,8 +78,8 @@
         { "iconType": "fa", "iconClass": "fas fa-check", "text": "Lounge access" }
       ],
       "decor": [
-        { "side": "left", "position": "center", "url": "/wp-content/themes/ilegiants/assets/images/arrow-left.png", "alt": "Left travel line" },
-        { "side": "right", "position": "center", "url": "/wp-content/themes/ilegiants/assets/images/arrow-right.png", "alt": "Right travel line" }
+        { "side": "left", "position": "center", "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png", "alt": "Left travel line" },
+        { "side": "right", "position": "center", "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png", "alt": "Right travel line" }
       ]
     }
   },

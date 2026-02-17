@@ -53,7 +53,7 @@ $wrapper = get_block_wrapper_attributes( [
           if ( $text === '' ) { continue; }
 
           echo render_block( [
-            'blockName'   => 'ilegiants/cta-bounce',
+            'blockName'   => 'allegiantairtickets/cta-bounce',
             'attrs'       => [
               'text'   => $text,
               'url'    => $url,

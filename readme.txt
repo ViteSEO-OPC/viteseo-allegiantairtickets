@@ -1,4 +1,4 @@
-== ilegiants ==
+== allegiantairtickets ==
 
 Contributors: 
 Requires at least: 6.8
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-ilegiants
+allegiantairtickets
 
 
 == Changelog ==
@@ -21,8 +21,8 @@ ilegiants
 
 == Copyright ==
 
-ilegiants WordPress Theme, (C) 2025 
-ilegiants is distributed under the terms of the GNU GPL.
+allegiantairtickets WordPress Theme, (C) 2025 
+allegiantairtickets is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -35,5 +35,5 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 
-ilegiants is a child theme of Twenty Twenty-Five (https://wordpress.org/themes/twentytwentyfive/), (C) the WordPress team, [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
+allegiantairtickets is a child theme of Twenty Twenty-Five (https://wordpress.org/themes/twentytwentyfive/), (C) the WordPress team, [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 

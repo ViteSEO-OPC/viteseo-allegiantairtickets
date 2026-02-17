@@ -64,7 +64,7 @@ ob_start();
 
 			<?php if ($buttonText !== ''): ?>
 				<?= render_block([
-					'blockName'  => 'ilegiants/cta-bounce',
+					'blockName'  => 'allegiantairtickets/cta-bounce',
 					'attrs'      => ['text' => $buttonText, 'url' => ($buttonUrl ?: '#'), 'accent' => '#FD593C'],
 					'innerBlocks'=> [], 'innerHTML' => '', 'innerContent' => []
 				]); ?>

@@ -28,13 +28,13 @@
             {
             "side":"left",
             "position":"center",
-            "url":"/wp-content/themes/ilegiants/assets/images/arrow-left.png",
+            "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png",
             "alt":"Decorative travel path left"
             },
             {
             "side":"right",
             "position":"center",
-            "url":"/wp-content/themes/ilegiants/assets/images/arrow-right.png",
+            "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png",
             "alt":"Decorative travel path right"
             }
         ]
@@ -45,7 +45,7 @@
         "backgroundColor":"#fff",
         "columns":2,
 
-        "headingIconUrl":"/wp-content/themes/ilegiants/assets/images/piggy.png",
+        "headingIconUrl":"/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
         "headingIconAlt":"Japan badge",
         "headingIconAlign":"left",
 
@@ -94,13 +94,13 @@
             {
             "side":"left",
             "position":"center",
-            "url":"/wp-content/themes/ilegiants/assets/images/arrow-left.png",
+            "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png",
             "alt":"Decorative travel path left"
             },
             {
             "side":"right",
             "position":"center",
-            "url":"/wp-content/themes/ilegiants/assets/images/arrow-right.png",
+            "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png",
             "alt":"Decorative travel path right"
             }
         ]

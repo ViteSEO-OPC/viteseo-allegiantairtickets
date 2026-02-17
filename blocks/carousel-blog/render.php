@@ -137,7 +137,7 @@ for ($i=0; $i<$count; $i++) $ids[$i] = $uid . '-s' . ($i+1);
             <p class="carousel-blog__cta">
               <?php
                 echo render_block([
-                  'blockName'   => 'ilegiants/cta-wave-card',
+                  'blockName'   => 'allegiantairtickets/cta-wave-card',
                   'attrs'       => [
                     'text'    => __('Read More','childtheme'),
                     'url'     => $s['url'] ?? '#',

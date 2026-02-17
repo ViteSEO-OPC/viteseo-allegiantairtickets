@@ -16,7 +16,7 @@
         "textPadY":28,                         
         "enterAnim":"left",
         "decor":[
-            { "url":"/wp-content/themes/ilegiants/assets/images/arrow-left.png", "alt":"left motif", "side":"left" }
+            { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png", "alt":"left motif", "side":"left" }
         ],
         "textDecor":[]
     } /-->
@@ -40,7 +40,7 @@
         "textPadY":66,                        
         "enterAnim":"right",
         "textDecor":[
-            { "url":"/wp-content/themes/ilegiants/assets/images/piggy.png", "alt":"badge", "pos":"tl" }
+            { "url":"/wp-content/themes/allegiantairtickets/assets/images/piggy.png", "alt":"badge", "pos":"tl" }
         ]
     } /-->
 
@@ -48,7 +48,7 @@
     <!-- wp:childtheme/card-2-text-image-responsive {
         "align": "wide",
         "imagePosition": "right",
-        "headingIconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+        "headingIconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
         "headingIconAlt": "Japan badge",
         "headingIconAlign": "left",
         "headline": "Best Time to Visit Japan for Cherry\nBlossoms & <b>Mild Weather</b>",
@@ -88,7 +88,7 @@
     <!-- wp:childtheme/card-2-text-image-responsive {
         "align": "wide",
         "imagePosition": "right",
-        "headingIconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+        "headingIconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
         "headingIconAlt": "Japan badge",
         "headingIconAlign": "left",
 
@@ -99,8 +99,8 @@
         "bulletGroups": [],
 
         "decor":[
-            { "url":"/wp-content/themes/ilegiants/assets/images/arrow-left.png", "alt":"left motif", "side":"left" },
-            { "url":"/wp-content/themes/ilegiants/assets/images/arrow-right.png", "alt":"right motif", "side":"right" }
+            { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png", "alt":"left motif", "side":"left" },
+            { "url":"/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png", "alt":"right motif", "side":"right" }
         ],
 
         "footerText": "",

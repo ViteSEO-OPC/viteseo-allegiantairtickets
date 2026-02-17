@@ -26,8 +26,8 @@
       "headline": "Our Philosophy",
       "body": "At Ilegiantairtickets.com, we believe that travel is not just about reaching a destination; it’s about understanding the world through meaningful, informed exploration. Our philosophy centers on empowering travelers with knowledge, encouraging curiosity, cultural respect, and smart decision-making.",
       "decor": [
-        { "url": "/wp-content/themes/ilegiants/assets/images/arrow-left.png",  "alt": "left motif",  "side": "left" },
-        { "url": "/wp-content/themes/ilegiants/assets/images/arrow-right.png", "alt": "right motif", "side": "right" }
+        { "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png",  "alt": "left motif",  "side": "left" },
+        { "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png", "alt": "right motif", "side": "right" }
       ]
     }
   },

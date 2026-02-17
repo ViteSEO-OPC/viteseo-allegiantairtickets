@@ -4,31 +4,31 @@
         "columns": 3,
         "items": [
             {
-            "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+            "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
             "iconAlt": "Travel savings icon",
             "title": "Pick a Destination That Matches Your Energy",
             "body": "Travel should fit your vibe. Whether you\u2019re craving peace, adventure, or inspiration, choosing a destination that matches current goals makes every trip feel more meaningful."
             },
             {
-            "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+            "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
             "iconAlt": "Travel savings icon",
             "title": "Pack Light, Move Freely",
             "body": "Light luggage equals freedom. Rolling clothes, using compression bags, and organizing with packing cubes keeps things compact and stress-free. Every seasoned traveler knows: less baggage, more adventure."
             },
             {
-            "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+            "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
             "iconAlt": "Travel savings icon",
             "title": "Leave Room for Surprises",
             "body": "Trips don\u2019t need to be planned down to the minute. Leaving open space in both the schedule and suitcase makes room for spontaneous detours, new friends, and unexpected moments."
             },
             {
-            "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+            "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
             "iconAlt": "Travel savings icon",
             "title": "Move Like a Local",
             "body": "Public transportation isn\u2019t just cheaper, it\u2019s part of the experience. Buses, subways, and trains reveal the local rhythm of a city, far beyond the touristy spots."
             },
             {
-            "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+            "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
             "iconAlt": "Travel savings icon",
             "title": "Connect Through Shared Experiences",
             "body": "Cooking classes, walking tours, and local workshops offer real connections and stories that travelers remember long after returning home."
@@ -38,13 +38,13 @@
             {
             "side": "left",
             "position": "center",
-            "url": "/wp-content/themes/ilegiants/assets/images/arrow-left.png",
+            "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png",
             "alt": "Decorative travel path left"
             },
             {
             "side": "right",
             "position": "center",
-            "url": "/wp-content/themes/ilegiants/assets/images/arrow-right.png",
+            "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png",
             "alt": "Decorative travel path right"
             }
         ]
@@ -56,7 +56,7 @@
       "columns": 3,
       "items": [
         {
-          "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+          "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
           "iconAlt": "Digital protection icon",
           "title": "Digital Protection",
           "body": "Online safety matters just as much:",
@@ -68,7 +68,7 @@
           ]
         },
         {
-          "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+          "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
           "iconAlt": "Gear essentials icon",
           "title": "Gear Essentials",
           "body": "Smart gear adds layers of protection:",
@@ -80,7 +80,7 @@
           ]
         },
         {
-          "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+          "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
           "iconAlt": "Awareness icon",
           "title": "Behavioral Awareness",
           "body": "Everyday habits reduce risk on the road:",
@@ -96,13 +96,13 @@
         {
           "side": "left",
           "position": "center",
-          "url": "/wp-content/themes/ilegiants/assets/images/arrow-left.png",
+          "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-left.png",
           "alt": "Decorative travel path left"
         },
         {
           "side": "right",
           "position": "center",
-          "url": "/wp-content/themes/ilegiants/assets/images/arrow-right.png",
+          "url": "/wp-content/themes/allegiantairtickets/assets/images/arrow-right.png",
           "alt": "Decorative travel path right"
         }
       ]

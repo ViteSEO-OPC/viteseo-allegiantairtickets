@@ -9,7 +9,7 @@
         "rating": 4.8,
         "price_range": "15-30",
         "address": "Pandora Building, B1, 3-23-12 Shinjuku, Tokyo 160-0022, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "15:00–23:30 (may vary)",
         "description": "Gyoza spot in Shinjuku (high-volume, quick bite)."
     },
@@ -23,7 +23,7 @@
         "rating": 4.8,
         "price_range": "7-16",
         "address": "Udagawacho 33-10 B1F, Shibuya, Tokyo 150-0042, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "11:00–22:30 daily",
         "description": "Halal-friendly chicken-focused spot in Shibuya."
     },
@@ -37,7 +37,7 @@
         "rating": 4.7,
         "price_range": "7-16",
         "address": "2-5-2 Kyobashi, Chuo City, Tokyo 104-0031, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "10:00–22:00 daily",
         "description": "Ramen shop in Kyobashi (solid default meal)."
     },
@@ -51,7 +51,7 @@
         "rating": 4.7,
         "price_range": "50-100+",
         "address": "The Forme Ginza, B1, 8-18-4 Ginza, Chuo City, Tokyo 104-0061, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "11:00–01:00",
         "description": "Wagyu-focused dining in Ginza (premium tier)."
     },
@@ -65,7 +65,7 @@
         "rating": 4.9,
         "price_range": "35-45",
         "address": "3-17-10 Tsukiji, Chuo City, Tokyo 104-0045, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "07:00–22:00 daily",
         "description": "Sukiyaki spot near Tsukiji (early-to-late service)."
     },
@@ -79,7 +79,7 @@
         "rating": 4.6,
         "price_range": "3-5",
         "address": "Shinjuku, Tokyo, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "09:00–16:00 (varies by season)",
         "description": "Huge landscaped gardens; peak for cherry blossoms & autumn leaves; great for picnics."
     },
@@ -93,7 +93,7 @@
         "rating": 4.4,
         "price_range": "0-0",
         "address": "Ueno, Taito City, Tokyo, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "05:00–23:00",
         "description": "Large city park with ponds and nearby museums/zoo; strong all-season stroll option."
     },
@@ -107,7 +107,7 @@
         "rating": 4.4,
         "price_range": "0-0",
         "address": "1-4 Daiba, Minato City, Tokyo 135-0091, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "Open 24 hours",
         "description": "Waterfront park with Tokyo Bay views, sunsets, and Rainbow Bridge photo ops."
     },
@@ -121,7 +121,7 @@
         "rating": 4.4,
         "price_range": "3-4",
         "address": "1 Chome-1 Hamarikyuteien, Chuo City, Tokyo, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "09:00–17:00",
         "description": "Traditional Edo-era garden with tidal pond and tea house."
     },
@@ -135,7 +135,7 @@
         "rating": 4.3,
         "price_range": "0-0",
         "address": "Yoyogikamizonocho, Shibuya City, Tokyo, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "hours": "Open 24 hours",
         "description": "Big urban green space near Shibuya/Harajuku; easy reset between city stops."
     },
@@ -149,7 +149,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "2-3-1 Asakusa, Taito City, Tokyo 111-0032, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Tokyo’s oldest temple; Nakamise shopping street and classic Asakusa vibe."
     },
     {
@@ -162,7 +162,7 @@
         "rating": 4.7,
         "price_range": "0-0",
         "address": "1-1 Yoyogikamizonocho, Shibuya City, Tokyo 151-8557, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Forested shrine walk; peaceful rituals and traditional architecture."
     },
     {
@@ -175,7 +175,7 @@
         "rating": 4.5,
         "price_range": "6-8",
         "address": "1-4-1 Yokoami, Sumida City, Tokyo 130-0015, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Tokyo history deep-dive with large-scale models and cultural exhibits."
     },
     {
@@ -188,7 +188,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "1-28-9 Nezu, Bunkyo City, Tokyo 113-0031, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Classic torii and seasonal azalea garden; quieter shrine experience."
     },
     {
@@ -201,7 +201,7 @@
         "rating": 4.8,
         "price_range": "55-60",
         "address": "2-1-1 Aomi, Koto City, Tokyo 135-0064, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Immersive digital art museum; interactive rooms and light installations."
     },
 
@@ -215,7 +215,7 @@
         "rating": 4.4,
         "price_range": "2-15",
         "address": "Nishikikoji Dori, Nakagyo-ku, Kyoto 604-8054, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Kyoto’s go-to food market: snacks, pickles, seafood, sweets."
     },
     {
@@ -228,7 +228,7 @@
         "rating": 4.3,
         "price_range": "12-25",
         "address": "292 Gionshirakawa-cho, Higashiyama-ku, Kyoto 605-0812, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Kyoto-style pressed sushi (saba/mackerel)."
     },
     {
@@ -241,7 +241,7 @@
         "rating": 4.4,
         "price_range": "10-18",
         "address": "421 Tominokoji-cho, Sanjo-dori, Nakagyo-ku, Kyoto 604-0923, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Handmade udon with seasonal sides."
     },
     {
@@ -254,7 +254,7 @@
         "rating": 4.3,
         "price_range": "15-30",
         "address": "Sagaogurayama Tabuchiyamacho, Ukyo-ku, Kyoto 616-8371, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Traditional yudofu tofu set; strong pairing with Arashiyama/temples."
     },
     {
@@ -267,7 +267,7 @@
         "rating": 4.2,
         "price_range": "10-18",
         "address": "Nakagyo Ward, Kyoto 604-8121, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Smoky burnt-miso ramen; signature Kyoto Gogyo style."
     },
 
@@ -281,7 +281,7 @@
         "rating": 4.7,
         "price_range": "0-0",
         "address": "Arashiyama, Ukyo-ku, Kyoto 616-8384, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Bamboo forest walk with river scenery; best early morning for lower crowds."
     },
     {
@@ -294,7 +294,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "Near Ginkaku-ji to Nanzen-ji, Kyoto, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Canal-side stroll; famous for cherry blossoms and calm neighborhoods."
     },
     {
@@ -307,7 +307,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "Along Kamo River, Kyoto City, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Riverside walk and picnic zone; simple, repeatable downtime."
     },
     {
@@ -320,7 +320,7 @@
         "rating": 4.4,
         "price_range": "3-5",
         "address": "3 Takano Nishimachi, Sakyo Ward, Kyoto, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Wide variety of plants and seasonal blooms; low-friction nature break."
     },
     {
@@ -333,7 +333,7 @@
         "rating": 4.6,
         "price_range": "0-15",
         "address": "Sakamoto, Otsu, Shiga (near Kyoto), Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Hiking and views over Kyoto & Lake Biwa; cable car optional."
     },
 
@@ -347,7 +347,7 @@
         "rating": 4.8,
         "price_range": "0-0",
         "address": "68 Fukakusa Yabunouchicho, Fushimi Ward, Kyoto 612-0882, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Iconic torii gate hike; go early or late for fewer crowds."
     },
     {
@@ -360,7 +360,7 @@
         "rating": 4.5,
         "price_range": "0-0",
         "address": "Gionmachi, Higashiyama Ward, Kyoto 605-0074, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Historic streets and teahouses; geiko/maiko culture and evening ambience."
     },
     {
@@ -373,7 +373,7 @@
         "rating": 4.4,
         "price_range": "2-15",
         "address": "Nishikikoji Dori, Nakagyo-ku, Kyoto 604-8054, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Market-as-culture: local flavors + Kyoto street life."
     },
     {
@@ -386,7 +386,7 @@
         "rating": 4.4,
         "price_range": "4-6",
         "address": "584 Matsubara-cho, Higashiyama Ward, Kyoto 605-0811, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Zen temple complex; strong architecture and gardens."
     },
     {
@@ -399,7 +399,7 @@
         "rating": 4.3,
         "price_range": "0-0",
         "address": "21 Imamiya-cho, Kita-ku, Kyoto 603-8231, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Heian-era shrine with local festival traditions; quieter than the headline shrines."
     },
 
@@ -413,7 +413,7 @@
         "rating": 4.5,
         "price_range": "3-15",
         "address": "Dotonbori, Chuo Ward, Osaka 542-0071, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Osaka street food hub; best for takoyaki, okonomiyaki, kushikatsu."
     },
     {
@@ -426,7 +426,7 @@
         "rating": 4.5,
         "price_range": "2-20",
         "address": "2 Chome-2-15 Nippombashi, Chuo Ward, Osaka 542-0073, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Seafood grills, wagyu bites, fruit and snacks; efficient lunch zone."
     },
     {
@@ -439,7 +439,7 @@
         "rating": 4.3,
         "price_range": "10-15",
         "address": "1-12-5 Dotonbori, Chuo Ward, Osaka 542-0071, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Solo-booth tonkotsu ramen experience; reliable chain option."
     },
     {
@@ -452,7 +452,7 @@
         "rating": 4.4,
         "price_range": "10-18",
         "address": "1-4-15 Dotonbori, Chuo Ward, Osaka 542-0071, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Classic Osaka-style okonomiyaki; high-demand at peak hours."
     },
     {
@@ -465,7 +465,7 @@
         "rating": 4.4,
         "price_range": "15-30",
         "address": "1-9-19 Toyosaki, Kita Ward, Osaka 531-0072, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Busy local sushi spot; strong value-to-quality ratio."
     },
 
@@ -479,7 +479,7 @@
         "rating": 4.6,
         "price_range": "0-8",
         "address": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Park grounds are free; castle tower is paid—solid cherry blossom circuit."
     },
     {
@@ -492,7 +492,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "Minoh, Osaka 562-0002, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Forest walk to waterfall; strong autumn leaves."
     },
     {
@@ -505,7 +505,7 @@
         "rating": 4.4,
         "price_range": "0-5",
         "address": "2-1-1 Nagai Park, Higashisumiyoshi Ward, Osaka 546-0034, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Large urban park; botanical garden add-on."
     },
     {
@@ -518,7 +518,7 @@
         "rating": 4.5,
         "price_range": "2-7",
         "address": "1-1 Senribanpakukoen, Suita, Osaka 565-0826, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Big open space + gardens; good for a half-day reset."
     },
     {
@@ -531,7 +531,7 @@
         "rating": 4.3,
         "price_range": "0-0",
         "address": "1-1-10 Kaigandori, Minato Ward, Osaka 552-0022, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Harbor promenade and bay views; easy sunset slot."
     },
 
@@ -545,7 +545,7 @@
         "rating": 4.5,
         "price_range": "6-8",
         "address": "1-1 Osakajo, Chuo Ward, Osaka 540-0002, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Historic castle museum with city views from the keep."
     },
     {
@@ -558,7 +558,7 @@
         "rating": 4.4,
         "price_range": "3-6",
         "address": "1-11-18 Shitennoji, Tennoji Ward, Osaka 543-0051, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "One of Japan’s oldest Buddhist temples; classic grounds and halls."
     },
     {
@@ -571,7 +571,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "2-9-89 Sumiyoshi, Sumiyoshi Ward, Osaka 558-0045, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Iconic shrine architecture and bridge approach; calm and photogenic."
     },
     {
@@ -584,7 +584,7 @@
         "rating": 4.4,
         "price_range": "6-10",
         "address": "4-2-55 Nakanoshima, Kita Ward, Osaka 530-0005, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Modern Japanese + international art; unique underground design."
     },
     {
@@ -597,7 +597,7 @@
         "rating": 4.4,
         "price_range": "5-7",
         "address": "4-1-32 Otemae, Chuo Ward, Osaka 540-0008, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Osaka timeline from ancient to modern; good pre/post-castle pairing."
     },
 
@@ -611,7 +611,7 @@
         "rating": 4.4,
         "price_range": "10-18",
         "address": "2929 Funatsu, Fujikawaguchiko, Yamanashi 401-0301, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Local hoto noodles (thick udon-style) in miso broth—Fuji-area staple."
     },
     {
@@ -624,7 +624,7 @@
         "rating": 4.5,
         "price_range": "3-10",
         "address": "2782 Funatsu, Fujikawaguchiko, Yamanashi 401-0301, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Fuji-shaped cookies and souvenirs; quick snack stop."
     },
     {
@@ -637,7 +637,7 @@
         "rating": 4.3,
         "price_range": "8-18",
         "address": "2259-3 Funatsu, Fujikawaguchiko, Yamanashi 401-0301, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Lake views + pastries; good brunch anchor."
     },
     {
@@ -650,7 +650,7 @@
         "rating": 4.3,
         "price_range": "15-30",
         "address": "1251 Gamotemachi, Hakone, Ashigarashimo District, Kanagawa 250-0522, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Premium tonkatsu sets; classic Hakone meal."
     },
     {
@@ -663,7 +663,7 @@
         "rating": 4.2,
         "price_range": "3-8",
         "address": "80-27 Motohakone, Hakone, Ashigarashimo District, Kanagawa 250-0522, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Traditional tea house; amazake and local snacks."
     },
 
@@ -677,7 +677,7 @@
         "rating": 4.7,
         "price_range": "0-30",
         "address": "Fuji Subaru Line 5th Station, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Panoramic views; common start point for climbing season (transport costs vary)."
     },
     {
@@ -690,7 +690,7 @@
         "rating": 4.6,
         "price_range": "0-25",
         "address": "Lake Kawaguchi, Fujikawaguchiko, Yamanashi, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Fuji views, boating, cycling, lakeside walks (paid activities optional)."
     },
     {
@@ -703,7 +703,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "Oishi Park, Fujikawaguchiko, Yamanashi, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Flower gardens with Fuji backdrop; very photo-friendly."
     },
     {
@@ -716,7 +716,7 @@
         "rating": 4.6,
         "price_range": "15-18",
         "address": "The Hakone Open-Air Museum, Hakone, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Sculpture garden + nature setting; low-effort, high-impact stop."
     },
     {
@@ -729,7 +729,7 @@
         "rating": 4.6,
         "price_range": "0-25",
         "address": "Lake Ashi, Hakone, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Boat cruises and lake views; optional paid cruise tickets."
     },
 
@@ -743,7 +743,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "Fujisan Hongu Sengen Taisha Shrine, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Historic Fuji worship site; classic shrine approach and cultural context."
     },
     {
@@ -756,7 +756,7 @@
         "rating": 4.2,
         "price_range": "8-18",
         "address": "Kawaguchiko Music Forest Museum, Fujikawaguchiko, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Music boxes + gardens; European-style setting with performances."
     },
     {
@@ -769,7 +769,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "Hakone Shrine, Motohakone, Hakone, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Lakeside torii gate; major Hakone cultural landmark."
     },
     {
@@ -782,7 +782,7 @@
         "rating": 4.4,
         "price_range": "10-15",
         "address": "Narukawa Art Museum, Hakone, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Japanese modern art with strong Lake Ashi/Fuji viewpoint."
     },
     {
@@ -795,7 +795,7 @@
         "rating": 4.5,
         "price_range": "10-15",
         "address": "Saiko Iyashi-no-Sato Nemba (Traditional Japanese Village), Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Open-air cultural village; thatched-roof homes and workshops."
     },
 
@@ -809,7 +809,7 @@
         "rating": 4.4,
         "price_range": "6-15",
         "address": "5-13 Shintenchi, Naka Ward, Hiroshima 730-0034, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Multi-stall okonomiyaki hall; efficient for groups and choice."
     },
     {
@@ -822,7 +822,7 @@
         "rating": 4.5,
         "price_range": "8-18",
         "address": "5-7 Shintenchi, Naka Ward, Hiroshima 730-0034, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Classic Hiroshima-style okonomiyaki with noodles."
     },
     {
@@ -835,7 +835,7 @@
         "rating": 4.6,
         "price_range": "2-6",
         "address": "Omotesando Street, Miyajima, Hatsukaichi, Hiroshima 739-0588, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Maple-leaf shaped sweets—signature Miyajima snack."
     },
     {
@@ -848,7 +848,7 @@
         "rating": 4.5,
         "price_range": "5-15",
         "address": "Omotesando Street, Miyajima, Hatsukaichi, Hiroshima 739-0588, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Grilled oysters; Hiroshima specialty (best fresh on-site)."
     },
     {
@@ -861,7 +861,7 @@
         "rating": 4.4,
         "price_range": "7-18",
         "address": "6-8 Nakamachi, Naka Ward, Hiroshima 730-0037, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Classic okonomiyaki option; central and easy to route."
     },
 
@@ -875,7 +875,7 @@
         "rating": 4.7,
         "price_range": "0-0",
         "address": "1-2 Nakajimacho, Naka Ward, Hiroshima 730-0811, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Reflective green space and memorials; high-impact, low-effort visit."
     },
     {
@@ -888,7 +888,7 @@
         "rating": 4.5,
         "price_range": "3-6",
         "address": "2-11 Kaminobori, Naka Ward, Hiroshima 730-0014, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Traditional garden with ponds and miniature landscapes."
     },
     {
@@ -901,7 +901,7 @@
         "rating": 4.4,
         "price_range": "0-0",
         "address": "Mitsumaruko-yama 1156-2, Miyajima, Hatsukaichi, Hiroshima 739-0535, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Forest and subtropical plants; quieter nature slot on Miyajima."
     },
     {
@@ -914,7 +914,7 @@
         "rating": 4.5,
         "price_range": "0-20",
         "address": "Mount Misen, Miyajima, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Hike or ropeway; viewpoints over Seto Inland Sea."
     },
     {
@@ -927,7 +927,7 @@
         "rating": 4.6,
         "price_range": "0-0",
         "address": "Miyajima coast, Hiroshima, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Coastal nature around the Seto Inland Sea; scenic shoreline views."
     },
 
@@ -941,7 +941,7 @@
         "rating": 4.8,
         "price_range": "5-10",
         "address": "1-1 Miyajimacho, Hatsukaichi, Hiroshima 739-0588, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "World Heritage shrine with iconic ‘floating’ torii gate."
     },
     {
@@ -954,7 +954,7 @@
         "rating": 4.7,
         "price_range": "2-6",
         "address": "Inside Hiroshima Peace Memorial Park, Hiroshima, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Core context for Hiroshima history and peace movement."
     },
     {
@@ -967,7 +967,7 @@
         "rating": 4.5,
         "price_range": "5-8",
         "address": "21-1 Motomachi, Naka Ward, Hiroshima 730-0011, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Reconstructed keep with exhibits; simple add-on to central Hiroshima route."
     },
     {
@@ -980,7 +980,7 @@
         "rating": 4.6,
         "price_range": "0-5",
         "address": "210 Miyajimacho, Hatsukaichi, Hiroshima 739-0588, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Temple complex with statues and halls; strong ‘walkable culture’ stop."
     },
     {
@@ -993,7 +993,7 @@
         "rating": 4.5,
         "price_range": "0-15",
         "address": "Omotesando Street, Miyajima, Hatsukaichi, Hiroshima 739-0588, Japan",
-        "image": "/wp-content/themes/ilegiants/assets/images/coming-soon.png",
+        "image": "/wp-content/themes/allegiantairtickets/assets/images/coming-soon.png",
         "description": "Historic shopping street for snacks, souvenirs, and strolling."
     }
 ]

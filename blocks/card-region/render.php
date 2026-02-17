@@ -77,7 +77,7 @@ ob_start(); ?>
             <?php if ($btnTxt): ?>
               <p class="card-region__cta">
                 <?= render_block([
-                  'blockName'   => 'ilegiants/cta-wave-card',
+                  'blockName'   => 'allegiantairtickets/cta-wave-card',
                   'attrs'       => [
                     'text'    => $btnTxt,
                     'url'     => $btnUrl,

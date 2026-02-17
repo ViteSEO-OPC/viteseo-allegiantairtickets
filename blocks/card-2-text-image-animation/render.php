@@ -104,7 +104,7 @@ ob_start(); ?>
         <?php if ($buttonText !== '' && $ctaAlign !== 'hidden'): ?>
           <div class="card-2-text-img-resp__cta-wrap card-2-text-img-resp__cta-wrap--<?= esc_attr($ctaAlign); ?>">
             <?= render_block([
-              'blockName'   => 'ilegiants/cta-bounce',
+              'blockName'   => 'allegiantairtickets/cta-bounce',
               'attrs'       => [ 'text' => $buttonText, 'url' => ($buttonUrl ?: '#'), 'accent' => $buttonAccent ],
               'innerBlocks' => [], 'innerHTML' => '', 'innerContent' => []
             ]); ?>

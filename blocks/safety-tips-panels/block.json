@@ -65,13 +65,13 @@
           "backgroundColor": "#fffdf2",
           "items": [
             {
-              "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+              "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
               "iconAlt": "Safety icon",
               "title": "Be Aware, Not Anxious",
               "body": "Situational awareness is the best defense. Paying attention, blending in, and limiting distractions help avoid unnecessary risks."
             },
             {
-              "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+              "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
               "iconAlt": "Safety icon",
               "title": "Gear That Guards",
               "body": "Anti-theft bags, RFID wallets, and a decoy wallet can add real peace of mind when moving through busy areas."
@@ -84,7 +84,7 @@
           "backgroundColor": "#ffe7ab",
           "items": [
             {
-              "iconUrl": "/wp-content/themes/ilegiants/assets/images/piggy.png",
+              "iconUrl": "/wp-content/themes/allegiantairtickets/assets/images/piggy.png",
               "iconAlt": "Planning icon",
               "title": "Avoid the Last-Minute Panic",
               "body": "Packing early prevents forgotten chargers and misplaced passports. A clear plan means less stress at departure."
@@ -94,12 +94,12 @@
       ],
       "decor": [
         {
-          "url": "/wp-content/themes/ilegiants/assets/images/decor-left-red-jp.png",
+          "url": "/wp-content/themes/allegiantairtickets/assets/images/decor-left-red-jp.png",
           "alt": "Left motif",
           "side": "left"
         },
         {
-          "url": "/wp-content/themes/ilegiants/assets/images/decor-right-red-jp.png",
+          "url": "/wp-content/themes/allegiantairtickets/assets/images/decor-right-red-jp.png",
           "alt": "Right motif",
           "side": "right"
         }
