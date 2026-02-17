@@ -41,51 +41,16 @@
 </header>
 <script>
 (function(){
-  const MOBILE_MAX = 1461;
-  const STICKY_AT  = 150;
-
-  const navbar   = document.getElementById('navbar');
-  const collapse = document.getElementById('navbarMain');
+  var MOBILE_MAX = 1461;
+  var collapse = document.getElementById('navbarMain');
 
   function syncCollapsed(){
-    // start closed in all “collapsed” ranges
     if (window.innerWidth <= MOBILE_MAX){
       collapse.classList.remove('show');
-      navbar.classList.remove('menu-open');
-    } else {
-      // desktop: rely on flex (no .show)
-      collapse.classList.remove('show');
-      navbar.classList.remove('menu-open');
     }
   }
 
-  function syncOnScroll(){
-    const y = window.pageYOffset || document.documentElement.scrollTop;
-    if (y > STICKY_AT){
-      navbar.classList.add('is-sticky');
-      navbar.classList.remove('menu-open');
-    } else {
-      navbar.classList.remove('is-sticky');
-      if (collapse.classList.contains('show')) navbar.classList.add('menu-open');
-      else navbar.classList.remove('menu-open');
-    }
-  }
-
-  // collapse open/close -> header background management
-  collapse.addEventListener('show.bs.collapse', () => {
-    if (!navbar.classList.contains('is-sticky')) navbar.classList.add('menu-open');
-  });
-  collapse.addEventListener('hidden.bs.collapse', () => {
-    navbar.classList.remove('menu-open');
-  });
-
-  // init + listeners
-  document.addEventListener('DOMContentLoaded', () => { syncCollapsed(); syncOnScroll(); });
-  window.addEventListener('resize', () => { clearTimeout(window._nav_r); window._nav_r = setTimeout(syncCollapsed, 120); }, { passive: true });
-  window.addEventListener('scroll', syncOnScroll, { passive: true });
+  document.addEventListener('DOMContentLoaded', syncCollapsed);
+  window.addEventListener('resize', function(){ clearTimeout(window._nav_r); window._nav_r = setTimeout(syncCollapsed, 120); }, { passive: true });
 })();
 </script>
-
-
-
-
