@@ -20,20 +20,23 @@
 
 
 /* ===== Sticky navbar ===== */
-header.wp-block-template-part {
+header.wp-block-template-part,
+.page-header {
   position: sticky;
   top: 0;
   z-index: 10000;
   overflow: visible;
-  background: #FDCD3B; 
+  background: #FDCD3B !important;
 }
 
 /* Your existing navbar rules still apply */
-#navbar {
+#navbar,
+#navbar.navbar,
+#navbar.navbar.navbar-light {
   position: sticky;
   top: 0;
   z-index: 10001;
-  background-color: #FDCD3B;
+  background-color: #FDCD3B !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .admin-bar #navbar,
@@ -206,13 +209,13 @@ header.wp-block-template-part {
   position: fixed;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
   padding: 8px 0;
-  background-color: #FDCD3B;
+  background-color: #FDCD3B !important;
   animation: slideDown 0.35s ease-out;
 }
 
 /* Mobile menu open */
 .navbar.menu-open {
-  background-color: #FDCD3B;
+  background-color: #FDCD3B !important;
   box-shadow: 0 5px 16px rgba(0,0,0,0.1);
 }
 
