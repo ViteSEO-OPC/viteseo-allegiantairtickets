@@ -1,9 +1,9 @@
 /*
-Theme Name: viteseo-allegiantairtickets
+Theme Name: ilegiants
 Theme URI: 
 Author: 
 Author URI: 
-Description: viteseo-allegiantairtickets
+Description: ilegiants
 Requires at least: 6.8
 Tested up to: 6.8
 Requires PHP: 5.7
@@ -11,24 +11,24 @@ Version:
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Template: twentytwentyfive
-Text Domain: viteseo-allegiantairtickets
+Text Domain: ilegiants
 Tags: 
 */
 
 /* Design tokens */
 :root{
   /* Gutters */
-  --page-gutter-left: clamp(12px, calc(12px + 208 * ((100vw - 360px) / 1080)), 220px);
-  --page-gutter-right: clamp(12px, calc(12px + 208 * ((100vw - 360px) / 1080)), 220px);
+  --page-gutter-left: clamp(12px, calc(12px + 88 * ((100vw - 360px) / 1080)), 100px);
+  --page-gutter-right: clamp(12px, calc(12px + 88 * ((100vw - 360px) / 1080)), 100px);
   --page-gutter-inline: var(--page-gutter-left) var(--page-gutter-right);
 
-  /* Content rail */
+    /* Content rail */
   --content-max: 72rem; /* ~1152px; tune as needed */
 
-  /* Utility */
+    /* Utility */
   --toc-top: 96px;
 
-  --section-mt: clamp(60px, 10vw, 125px);
+  --section-mt: 20px;
 }
 
 /* Global reset for the top edge */
@@ -75,12 +75,15 @@ header.wp-block-template-part { margin: 0; padding: 0; }
 .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
   max-width: none;
 }
-/* Prevent horizontal scroll from decorative elements */
-html { overflow-x: clip; }
-body { overflow-x: clip; }
+/* Kill accidental horizontal scroll from decorative elements */
+/* html,
+body {
+  overflow-x: hidden;
+}
 
-/* Global responsive image safety net */
-img, video, svg, canvas { max-width: 100%; height: auto; }
+.wp-site-blocks {
+  overflow-x: hidden;
+} */
 
 
 /* contact page */
@@ -94,7 +97,7 @@ img, video, svg, canvas { max-width: 100%; height: auto; }
 }
 .contact-split {
   display: grid;
-  grid-template-columns: minmax(min(420px, 100%), 2fr) minmax(min(280px, 100%), 1fr);
+  grid-template-columns: minmax(420px, 2fr) minmax(280px, 1fr);
   gap: 2.5rem 2rem;
   align-items: center;
 }
@@ -124,7 +127,7 @@ img, video, svg, canvas { max-width: 100%; height: auto; }
   background: #fff;
   border: none !important;
   border-radius: 32px !important;
-  padding: clamp(20px, 4vw, 42px);
+  padding: 42px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 .card + .card {
@@ -387,19 +390,19 @@ img, video, svg, canvas { max-width: 100%; height: auto; }
 }
 
 .logo-img {
-  width: min(160px, 100%);
+  width: 160px;
   height: auto;
   margin: 0;
 }
 
 .logo-img-jp {
-  width: min(100px, 100%);
+  width: 100px;
   height: auto;
   margin: 0;
 }
 
 .logo-img-kr {
-  width: min(240px, 100%);
+  width: 240px;
   height: auto;
   margin: 0;
 }

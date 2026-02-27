@@ -136,7 +136,7 @@
   top: 50%;
   width: auto;
   max-width: 140%;
-  height: auto;
+  height: 115%;
   transform-origin: center center;
   /* start: center-center, scaled down */
   transform: translate(-40%, -40%) scale(var(--fg-start-scale, 0.1));
@@ -216,7 +216,7 @@
   /* Control figure sizing on smaller screens; keep overlap + animation */
   .card-2-text-img-resp__figure{
     width: 100%;
-    max-width: min(480px, 100%);   /* adjust as needed */
+    max-width: 480px;   /* adjust as needed */
     margin: 0 auto;
     aspect-ratio: 4 / 3; /* or 16/9, etc. */
     height: auto;

@@ -1,0 +1,128 @@
+.text-search-block {
+  font-family: "Outfit", sans-serif;
+}
+
+/* Layout matches .discover-grid__head logic */
+.text-search__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.text-search__content {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.text-search__title {
+  margin: 0 0 0.4rem;
+  font-size: var(--wp--preset--font-size--h-2, 2rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: #fd593c;
+}
+
+.text-search__intro {
+  margin: 0;
+  color: #777777;
+  font-size: var(--wp--preset--font-size--body, 1rem);
+  line-height: 1.5;
+}
+
+.text-search__form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 2px 10px;
+  background: #f6eefc;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.text-search__form:focus-within {
+  background: #eedeef;
+}
+
+.text-search__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-size: var(--wp--preset--font-size--body, 1rem);
+  color: #2a2a2a;
+  outline: none;
+  height: 48px;
+}
+
+.text-search__input::placeholder {
+  color: #777777;
+}
+
+
+
+.text-search__button {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  line-height: 1;
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+
+.text-search__button:hover {
+  opacity: 0.7;
+}
+
+.text-search__button::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fd593c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  opacity: 1;
+}
+
+.text-search__status {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.text-search__form.is-loading .text-search__button {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+@media (min-width: 1275px) {
+  .text-search__inner {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .text-search__content {
+    flex: 0 1 80%;
+    max-width: 80%;
+  }
+
+  .text-search__form {
+    flex: 0 1 20%;
+    max-width: 20%;
+    margin-left: 0;
+  }
+}

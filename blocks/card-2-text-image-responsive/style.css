@@ -62,11 +62,14 @@
 .card-2-text-img-resp__panel-decor{
   position: absolute;
   width: clamp(40px, 7.5vw, 230px);
-  /* width: clamp(48px, 6vw, 80px); */
   height: auto;
   pointer-events: none;
   user-select: none;
   opacity: .95;
+}
+
+.card-2-text-img-resp__panel-decor.is-special-width {
+  width: clamp(48px, 6vw, 80px);
 }
 
 

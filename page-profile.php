@@ -3,28 +3,29 @@
  * Template Name: Community Profile
  */
 
-if ( ! is_user_logged_in() ) {
+if (!is_user_logged_in()) {
     // Redirect guests to login with redirect back to profile
-    wp_redirect( wp_login_url( get_permalink() ) );
+    wp_redirect(wp_login_url(get_permalink()));
     exit;
 }
 
 $current_user = wp_get_current_user();
-$user_id      = $current_user->ID;
+$user_id = $current_user->ID;
 
-$first_name = get_user_meta( $user_id, 'first_name', true );
-$last_name  = get_user_meta( $user_id, 'last_name', true );
-$full_name  = trim( $first_name . ' ' . $last_name );
-if ( $full_name === '' ) {
+$first_name = get_user_meta($user_id, 'first_name', true);
+$last_name = get_user_meta($user_id, 'last_name', true);
+$full_name = trim($first_name . ' ' . $last_name);
+if ($full_name === '') {
     $full_name = $current_user->display_name;
 }
 
-$avatar_url = get_avatar_url( $user_id, [ 'size' => 120 ] );
+$avatar_url = get_avatar_url($user_id, ['size' => 120]);
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
 
@@ -195,110 +196,133 @@ $avatar_url = get_avatar_url( $user_id, [ 'size' => 120 ] );
                 align-self: flex-end;
             }
         }
+        .btn-login {
+            background: #fd593c;
+            color: #ffffff;
+            border: 2px solid #fd593c;
+            border-radius: 50px;
+            padding: 0.6rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: #ffffff;
+            color: #fd593c;
+        }
     </style>
 </head>
+
 <body <?php body_class(); ?>>
 
-<?php
-// Header template part
-if ( function_exists( 'do_blocks' ) ) {
-    echo do_blocks( '<!-- wp:template-part {"slug":"header-community","tagName":"header"} /-->' );
-}
-?>
+    <?php
+    // Header template part
+    if (function_exists('do_blocks')) {
+        echo do_blocks('<!-- wp:template-part {"slug":"header-community","tagName":"header"} /-->');
+    }
+    ?>
 
-<main class="community-profile-wrapper py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 col-xl-9">
+    <main class="community-profile-wrapper py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
 
-                <?php
-                // Status messages
-                if ( isset( $_GET['profile-updated'] ) && $_GET['profile-updated'] === '1' ) : ?>
-                    <div class="alert alert-success mb-4">
-                        Profile updated successfully.
-                    </div>
-                <?php endif; ?>
+                    <?php
+                    // Status messages
+                    if (isset($_GET['profile-updated']) && $_GET['profile-updated'] === '1'): ?>
+                        <div class="alert alert-success mb-4">
+                            Profile updated successfully.
+                        </div>
+                    <?php endif; ?>
 
-                <?php if ( isset( $_GET['profile-error'] ) ) : ?>
-                    <div class="alert alert-danger mb-4">
-                        <?php
-                        switch ( $_GET['profile-error'] ) {
-                            case 'password_mismatch':
-                                echo 'Passwords do not match.';
-                                break;
-                            default:
-                                echo 'There was a problem updating your profile.';
-                                break;
-                        }
-                        ?>
-                    </div>
-                <?php endif; ?>
+                    <?php if (isset($_GET['profile-error'])): ?>
+                        <div class="alert alert-danger mb-4">
+                            <?php
+                            switch ($_GET['profile-error']) {
+                                case 'password_mismatch':
+                                    echo 'Passwords do not match.';
+                                    break;
+                                default:
+                                    echo 'There was a problem updating your profile.';
+                                    break;
+                            }
+                            ?>
+                        </div>
+                    <?php endif; ?>
 
-                <!-- PROFILE HEADER CARD -->
-                <div class="profile-card submit-card p-4 p-md-5 mb-4">
-                    <div class="profile-dashboard-header mb-2">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="profile-avatar-box">
-                                <?php if ( $avatar_url ) : ?>
-                                    <img src="<?php echo esc_url( $avatar_url ); ?>"
-                                         alt="<?php echo esc_attr( $full_name ); ?>">
-                                <?php else : ?>
-                                    <i class="fas fa-user fa-2x"></i>
-                                <?php endif; ?>
+                    <!-- PROFILE HEADER CARD -->
+                    <div class="profile-card submit-card p-4 p-md-5 mb-4">
+                        <div class="profile-dashboard-header mb-2">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="profile-avatar-box">
+                                    <?php if ($avatar_url): ?>
+                                        <img src="<?php echo esc_url($avatar_url); ?>"
+                                            alt="<?php echo esc_attr($full_name); ?>">
+                                    <?php else: ?>
+                                        <i class="fas fa-user fa-2x"></i>
+                                    <?php endif; ?>
+                                </div>
+                                <div>
+                                    <h2 class="profile-summary-title mb-1">Profile / Dashboard</h2>
+                                    <p class="profile-summary-subtitle">
+                                        Manage your profile and community content.
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h2 class="profile-summary-title mb-1">Profile / Dashboard</h2>
-                                <p class="profile-summary-subtitle">
-                                    Manage your profile and community content.
-                                </p>
+                            <button type="button" class="btn profile-edit-btn" id="profileEditToggle">
+                                Edit
+                            </button>
+                        </div>
+
+                        <div class="row g-3 profile-info-grid">
+                            <div class="col-md-6">
+                                <div class="profile-info-box">
+                                    <span class="profile-info-label">Full Name</span>
+                                    <span class="profile-info-value">
+                                        <?php echo esc_html($full_name); ?>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="profile-info-box">
+                                    <span class="profile-info-label">Email</span>
+                                    <span class="profile-info-value">
+                                        <?php echo esc_html($current_user->user_email); ?>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <button type="button"
-                                class="btn profile-edit-btn"
-                                id="profileEditToggle">
-                            Edit
-                        </button>
-                    </div>
 
-                    <div class="row g-3 profile-info-grid">
-                        <div class="col-md-6">
-                            <div class="profile-info-box">
-                                <span class="profile-info-label">Full Name</span>
-                                <span class="profile-info-value">
-                                    <?php echo esc_html( $full_name ); ?>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="profile-info-box">
-                                <span class="profile-info-label">Email</span>
-                                <span class="profile-info-value">
-                                    <?php echo esc_html( $current_user->user_email ); ?>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                        <!-- HIDDEN EDIT FORM -->
+                        <div class="profile-edit-form d-none" id="profileEditForm">
+                            <h5 class="mb-3 mt-4">Edit Profile</h5>
+                            <p class="text-muted small mb-3">
+                                Update your details below. Leave the password fields blank if you don’t want to change
+                                it.
+                            </p>
 
-                    <!-- HIDDEN EDIT FORM -->
-                    <div class="profile-edit-form d-none" id="profileEditForm">
-                        <h5 class="mb-3 mt-4">Edit Profile</h5>
-                        <p class="text-muted small mb-3">
-                            Update your details below. Leave the password fields blank if you don’t want to change it.
-                        </p>
+                            <form method="post" enctype="multipart/form-data"
+                                action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                                <input type="hidden" name="action" value="ileg_update_profile">
+                                <?php wp_nonce_field('ileg_profile_update', 'ileg_profile_nonce'); ?>
 
-                        <form method="post"
-                              action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-                            <input type="hidden" name="action" value="ileg_update_profile">
-                            <?php wp_nonce_field( 'ileg_profile_update', 'ileg_profile_nonce' ); ?>
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label class="form-label" for="profile_avatar">Profile Picture</label>
+                                        <input type="file" class="form-control" id="profile_avatar"
+                                            name="profile_avatar" accept="image/*">
+                                        <div class="form-text">Upload a new image to change your avatar.</div>
+                                    </div>
 
-                            <div class="row g-3">
-                                <!-- <div class="col-md-6">
+                                    <hr class="my-4">
+
+                                    <!-- <div class="col-md-6">
                                     <label class="form-label" for="first_name">First Name</label>
                                     <input type="text"
                                            class="form-control"
                                            id="first_name"
                                            name="first_name"
-                                           value="<?php echo esc_attr( $first_name ); ?>">
+                                           value="<?php echo esc_attr($first_name); ?>">
                                 </div>
 
                                 <div class="col-md-6">
@@ -307,128 +331,117 @@ if ( function_exists( 'do_blocks' ) ) {
                                            class="form-control"
                                            id="last_name"
                                            name="last_name"
-                                           value="<?php echo esc_attr( $last_name ); ?>">
+                                           value="<?php echo esc_attr($last_name); ?>">
                                 </div> -->
 
-                                <div class="col-md-6">
-                                    <label class="form-label" for="display_name">Display Name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           id="display_name"
-                                           name="display_name"
-                                           value="<?php echo esc_attr( $current_user->display_name ); ?>">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="display_name">Display Name</label>
+                                        <input type="text" class="form-control" id="display_name" name="display_name"
+                                            value="<?php echo esc_attr($current_user->display_name); ?>">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="user_email">Email Address</label>
+                                        <input type="email" class="form-control" id="user_email" name="user_email"
+                                            value="<?php echo esc_attr($current_user->user_email); ?>" required>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label" for="user_email">Email Address</label>
-                                    <input type="email"
-                                           class="form-control"
-                                           id="user_email"
-                                           name="user_email"
-                                           value="<?php echo esc_attr( $current_user->user_email ); ?>"
-                                           required>
-                                </div>
-                            </div>
+                                <hr class="my-4">
 
-                            <hr class="my-4">
+                                <h6 class="mb-3">Change Password</h6>
 
-                            <h6 class="mb-3">Change Password</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="pass1">New Password</label>
+                                        <input type="password" class="form-control" id="pass1" name="pass1">
+                                    </div>
 
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label" for="pass1">New Password</label>
-                                    <input type="password"
-                                           class="form-control"
-                                           id="pass1"
-                                           name="pass1">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="pass2">Confirm New Password</label>
+                                        <input type="password" class="form-control" id="pass2" name="pass2">
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label" for="pass2">Confirm New Password</label>
-                                    <input type="password"
-                                           class="form-control"
-                                           id="pass2"
-                                           name="pass2">
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-login mt-3">
-                                Save Changes
-                            </button>
-                        </form>
+                                <button type="submit" class="btn btn-login mt-3">
+                                    Save Changes
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
 
-                <!-- MY POSTS -->
-                <div class="submit-card p-4 p-md-5">
-                    <h2 class="mb-3">My Posts</h2>
-                    <p class="mb-4">These are the posts you’ve submitted.</p>
+                    <!-- MY POSTS -->
+                    <div class="submit-card p-4 p-md-5">
+                        <h2 class="mb-3">My Posts</h2>
+                        <p class="mb-4">These are the posts you’ve submitted.</p>
 
-                    <?php
-                    echo do_blocks( '<!-- wp:ileg/card-gatherer-profile {"typeblock":"posts"} /-->' );
-                    ?>
-                </div>
+                        <?php
+                        echo do_blocks('<!-- wp:ileg/card-gatherer-profile {"typeblock":"posts"} /-->');
+                        ?>
+                    </div>
 
-                <!-- MY IMAGES -->
-               <div class="submit-card p-4 p-md-5 mt-4">
-                    <h2 class="mb-3">My Images</h2>
-                    <p class="mb-4">All images you have uploaded.</p>
+                    <!-- MY IMAGES -->
+                    <div class="submit-card p-4 p-md-5 mt-4">
+                        <h2 class="mb-3">My Images</h2>
+                        <p class="mb-4">All images you have uploaded.</p>
 
-                    <?php
-                    echo do_blocks( '<!-- wp:ileg/card-gatherer-profile {"typeblock":"images"} /-->' );
-                    ?>
-                </div>
+                        <?php
+                        echo do_blocks('<!-- wp:ileg/card-gatherer-profile {"typeblock":"images"} /-->');
+                        ?>
+                    </div>
 
-                <!-- My Drafts & Pending Posts -->
-                <div class="submit-card p-4 p-md-5 mt-4">
-                    <h2 class="mb-3">My Drafts & Pending Posts</h2>
-                    <p class="mb-4">Work-in-progress and submitted posts that aren’t published yet, including drafts, pending review, and on-hold items.</p>
+                    <!-- My Drafts & Pending Posts -->
+                    <div class="submit-card p-4 p-md-5 mt-4">
+                        <h2 class="mb-3">My Drafts & Pending Posts</h2>
+                        <p class="mb-4">Work-in-progress and submitted posts that aren’t published yet, including
+                            drafts, pending review, and on-hold items.</p>
 
-                    <?php
-                    echo do_blocks( '<!-- wp:ileg/card-gatherer-profile {"typeblock":"drafts"} /-->' );
-                    ?>
-                </div>
+                        <?php
+                        echo do_blocks('<!-- wp:ileg/card-gatherer-profile {"typeblock":"drafts"} /-->');
+                        ?>
+                    </div>
 
-                <!-- Analytics -->
-                <div class="submit-card p-4 p-md-5 mt-4">
-                    <h2 class="mb-3">Analytics</h2>
-                    <p class="mb-4">These are the analytics for your posts and images.</p>
+                    <!-- Analytics -->
+                    <div class="submit-card p-4 p-md-5 mt-4">
+                        <h2 class="mb-3">Analytics</h2>
+                        <p class="mb-4">These are the analytics for your posts and images.</p>
 
-                    <?php
-                    echo do_blocks( '<!-- wp:ileg/analytics {"typeblock":"analytics"} /-->' );
-                    ?>
+                        <?php
+                        echo do_blocks('<!-- wp:ileg/analytics {"typeblock":"analytics"} /-->');
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var toggleBtn = document.getElementById('profileEditToggle');
-    var formEl    = document.getElementById('profileEditForm');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggleBtn = document.getElementById('profileEditToggle');
+            var formEl = document.getElementById('profileEditForm');
 
-    if (!toggleBtn || !formEl) return;
+            if (!toggleBtn || !formEl) return;
 
-    toggleBtn.addEventListener('click', function () {
-        var isHidden = formEl.classList.contains('d-none');
-        if (isHidden) {
-            formEl.classList.remove('d-none');
-            toggleBtn.textContent = 'Close';
-        } else {
-            formEl.classList.add('d-none');
-            toggleBtn.textContent = 'Edit';
-        }
-    });
-});
-</script>
+            toggleBtn.addEventListener('click', function () {
+                var isHidden = formEl.classList.contains('d-none');
+                if (isHidden) {
+                    formEl.classList.remove('d-none');
+                    toggleBtn.textContent = 'Close';
+                } else {
+                    formEl.classList.add('d-none');
+                    toggleBtn.textContent = 'Edit';
+                }
+            });
+        });
+    </script>
 
-<?php
-// Footer template part + WP footer hook
-if ( function_exists( 'block_template_part' ) ) {
-    block_template_part( 'footer' );
-}
-wp_footer();
-?>
+    <?php
+    // Footer template part + WP footer hook
+    if (function_exists('block_template_part')) {
+        block_template_part('footer');
+    }
+    wp_footer();
+    ?>
 </body>
+
 </html>

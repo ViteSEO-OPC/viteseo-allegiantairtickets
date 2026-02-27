@@ -1,0 +1,44 @@
+{
+  "apiVersion": 3,
+  "name": "child/text-search",
+  "title": "Text Search",
+  "category": "widgets",
+  "icon": "search",
+  "description": "Community search that routes to Publish Content or Discover.",
+  "style": "file:./style.css",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ],
+    "spacing": {
+      "margin": [ "top", "bottom" ],
+      "padding": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "intro": {
+      "type": "string",
+      "default": ""
+    },
+    "btn-placeholder": {
+      "type": "string",
+      "default": "Search"
+    },
+    "publishUrl": {
+      "type": "string",
+      "default": "/community/publish-content/"
+    },
+    "discoverUrl": {
+      "type": "string",
+      "default": "/community/discover/"
+    },
+    "cutoffDays": {
+      "type": "number",
+      "default": 7
+    }
+  }
+}

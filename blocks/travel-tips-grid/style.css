@@ -78,8 +78,8 @@
 }
 
 .travel-tips__icon {
-  width: clamp(72px, 10vw, 104px);
-  height: clamp(72px, 10vw, 104px);
+  width: 104px;
+  height: 104px;
   display: block;
   align-self: center;
 }

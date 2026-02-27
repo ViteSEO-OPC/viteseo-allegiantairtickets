@@ -22,7 +22,7 @@
 .discover-grid__head-main {
   flex: 0 0 100%;
   width: 100%;
-  min-width: min(260px, 100%);
+  min-width: 260px;
 }
 
 .discover-grid__search-wrap {
@@ -65,7 +65,7 @@
 }
 
 .discover-grid__search::placeholder {
-  color: #c09ad5;
+  color: #777777;
 }
 
 .discover-grid__search-wrap::after {
@@ -126,7 +126,7 @@
 }
 
 .discover-grid__cat-select {
-  min-width: min(220px, 100%);
+  min-width: 220px;
   padding: 0.4rem 1.1rem;
   border-radius: 999px;
   border: 1px solid #dddddd;

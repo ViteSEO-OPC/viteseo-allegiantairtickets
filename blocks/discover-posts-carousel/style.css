@@ -30,6 +30,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.25rem;
+  gap: 2rem;
 }
 
 .discover-carousel__title {
@@ -38,13 +39,22 @@
   color: #fd593c;
 }
 
+.discover-carousel__intro {
+  margin: 0.5rem 0 0;
+  max-width: 1500px;
+  font-size: var(--wp--preset--font-size--body);
+  color: #555555;
+  line-height: 1.5;
+}
+
 .discover-carousel__viewall {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: var(--wp--preset--font-size--body);
+  font-size: clamp(20px, 4vw, var(--wp--preset--font-size--h-2));
   color: #fd593c;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .discover-carousel__viewall:hover .discover-carousel__viewall-label {

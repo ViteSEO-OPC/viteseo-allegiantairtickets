@@ -112,7 +112,7 @@ ob_start();
 									<div class="card-rail__cta">
 										<?php
 										echo render_block( [
-											'blockName'   => 'viteseo-allegiantairtickets/cta-bounce',
+											'blockName'   => 'ilegiants/cta-bounce',
 											'attrs'       => [
 												'text'        => $cta_text,
 												'url'         => ( $cta_url ?: '#' ),
