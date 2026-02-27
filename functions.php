@@ -751,3 +751,19 @@ add_filter('get_comment_date', function ($date, $format, $comment) {
     $y = (int) floor($days / 365);
     return $y === 1 ? __('A year ago', 'your-textdomain') : sprintf(_n('%s years ago', '%s years ago', $y, 'your-textdomain'), $y);
 }, 10, 3);
+
+
+/* =================================================
+ * SEO: ROBOTS META
+ * ================================================= */
+add_action('wp_head', function () {
+    echo '<meta name="robots" content="noindex, nofollow">';
+    return;
+}, 1);
+
+/* =================================================
+ * GLOBAL ROBOTS HEADERS
+ * ================================================= */
+add_action('send_headers', function () {
+    header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet', true);
+});
