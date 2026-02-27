@@ -28,7 +28,7 @@ Tags:
     /* Utility */
   --toc-top: 96px;
 
-  --section-mt: 20px;
+  --section-mt: 10px;
 }
 
 /* Global reset for the top edge */
@@ -39,7 +39,7 @@ html, body, .wp-block-group { margin: 0; padding: 0; }
 .wp-site-blocks > :first-child { margin-block-start: 0; }
 
 /* sections */
-/* .child-block { margin-top: var(--section-mt); } */
+.child-block { margin-top: var(--section-mt); }
 
 /* first section inside common wrappers: no top padding */
 .wp-block-group > .child-block:first-child,
