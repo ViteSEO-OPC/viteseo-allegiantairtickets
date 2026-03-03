@@ -114,11 +114,24 @@ add_filter('render_block', function ($block_content, $block) {
     }
 
     $slug = $block['attrs']['slug'] ?? '';
-    if (!in_array($slug, ['header', 'header-community'], true)) {
+    if (!in_array($slug, ['header', 'header-community', 'footer'], true)) {
         return $block_content;
     }
 
-    $part_file = get_stylesheet_directory() . "/parts/{$slug}.html";
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '/';
+    $request_path = wp_parse_url($request_uri, PHP_URL_PATH);
+    $request_path = is_string($request_path) && $request_path !== '' ? $request_path : '/';
+    $is_ko = (bool) preg_match('#^/ko(?:/|$)#', $request_path);
+
+    $part_slug = $slug;
+    if ($slug === 'footer' && $is_ko) {
+        $ko_footer_file = get_stylesheet_directory() . '/parts/footer-ko.html';
+        if (file_exists($ko_footer_file)) {
+            $part_slug = 'footer-ko';
+        }
+    }
+
+    $part_file = get_stylesheet_directory() . "/parts/{$part_slug}.html";
     if (!file_exists($part_file)) {
         return $block_content;
     }
