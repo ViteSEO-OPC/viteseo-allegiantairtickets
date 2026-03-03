@@ -64,7 +64,7 @@ def create_logo():
     
     draw.text((shift_x, shift_y), text, font=font, fill=text_color)
     
-    output_path = "assets/images/logo.webp"
+    output_path = "assets/images/allegiants_logo.webp"
     
     # Ensure directory exists
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
