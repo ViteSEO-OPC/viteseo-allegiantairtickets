@@ -119,7 +119,7 @@ $motion_en    = ! empty( $attrs['motionEnabled'] ) ? '1' : '0';
       <div class="lp-banner__panel">
         <?php if ( $title ) : ?>
           <h1 class="lp-banner__title<?php echo esc_attr( $title_shadow ); ?>">
-            <span class="lp-banner__title-text">
+            <span class="lp-banner__title-text" data-text="<?php echo esc_attr( wp_strip_all_tags( $title ) ); ?>">
               <?php echo wp_kses_post( $title ); ?>
             </span>
           </h1>

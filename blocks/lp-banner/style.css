@@ -129,21 +129,38 @@
 /* Typography */
 .lp-banner__title {
   margin: 0;
-  color: var(--accent, tomato);
   font-weight: 800;
   font-size: clamp(28px, 4.6vw, 56px);
   line-height: 1.05;
   letter-spacing: 0.02em;
   /* text-wrap: balance; */
   width: 100%;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #FDCD3B;
 }
 .lp-banner__title.has-title-shadow {
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.65);
+  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.65));
 }
 .lp-banner__title-text {
+  position: relative;
   display: inline-block;
+  color: var(--accent, tomato);
+  z-index: 1;
+}
+
+.lp-banner__title-text::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: #FDCD3B;
+  text-shadow:
+    -1px  0   0 #FDCD3B,
+     1px  0   0 #FDCD3B,
+     0   -1px 0 #FDCD3B,
+     0    1px 0 #FDCD3B,
+    -1px -1px 0 #FDCD3B,
+     1px -1px 0 #FDCD3B,
+    -1px  1px 0 #FDCD3B,
+     1px  1px 0 #FDCD3B;
 }
 
 .lp-banner__rule {
