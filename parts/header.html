@@ -1,7 +1,17 @@
 <!-- ✅ MAIN NAVBAR -->
 <header class="page-header">
+    <div class="header-topbar" role="navigation" aria-label="Language switcher">
+      <div class="container">
+        <div class="header-topbar__inner">
+          <span class="header-topbar__label">Language:</span>
+          <a class="header-topbar__link" href="/" lang="en" data-lang="en">English</a>
+          <span class="header-topbar__sep">|</span>
+          <a class="header-topbar__link" href="/ko/" lang="ko" data-lang="ko">Korean</a>
+        </div>
+      </div>
+    </div>
 
-    <nav id="navbar" class="navbar navbar-expand-1462 navbar-light">
+    <nav id="navbar" class="navbar navbar-expand-1200 navbar-light">
       <div class="container py-2">
 
         <a class="brand-link d-flex align-items-center" href="/">
@@ -15,24 +25,24 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-xxl-auto mb-2 mt-2 mt-xxl-0 gap-2 mb-xxl-0">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="/community/">Community</a></li>
-            <li class="nav-item"><a class="nav-link" href="/travel-intelligence/">Travel Savvy</a></li>
+          <ul class="navbar-nav ms-lg-auto mb-2 mt-2 mt-lg-0 gap-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/" data-i18n-key="home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about/" data-i18n-key="about">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/community/" data-i18n-key="community">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="/travel-intelligence/" data-i18n-key="travel_savvy">Travel Savvy</a></li>
             <li class="nav-item dropdown" data-bs-auto-close="outside">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" data-i18n-key="destination">
                 Destination
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="/destination/region/">Region</a></li>
-                <li><a class="dropdown-item" href="/destination/south-korea/">South Korea</a></li>
-                <li><a class="dropdown-item" href="/destination/japan/">Japan</a></li>
-                <li><a class="dropdown-item" href="/destination/thailand/">Thailand</a></li>
+                <li><a class="dropdown-item" href="/destination/region/" data-i18n-key="region">Region</a></li>
+                <li><a class="dropdown-item" href="/destination/south-korea/" data-i18n-key="south_korea">South Korea</a></li>
+                <li><a class="dropdown-item" href="/destination/japan/" data-i18n-key="japan">Japan</a></li>
+                <li><a class="dropdown-item" href="/destination/thailand/" data-i18n-key="thailand">Thailand</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="/blog/" data-i18n-key="blog">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact/" data-i18n-key="contact">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -41,11 +51,137 @@
 </header>
 <script>
 (function(){
-  const MOBILE_MAX = 1461;
+  const MOBILE_MAX = 1199;
   const STICKY_AT  = 150;
 
   const navbar   = document.getElementById('navbar');
   const collapse = document.getElementById('navbarMain');
+  const pageHeader = navbar ? navbar.closest('.page-header') : null;
+
+  function toKoPath(pathname){
+    const trimmed = (pathname || '/').replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    if (parts[0] === 'ko') parts.shift();
+    if (!parts.length) return '/ko/';
+    const lastIdx = parts.length - 1;
+    if (!parts[lastIdx].endsWith('-ko')) {
+      parts[lastIdx] = parts[lastIdx] + '-ko';
+    }
+    return '/ko/' + parts.join('/') + '/';
+  }
+
+  function toEnPath(pathname){
+    const trimmed = (pathname || '/').replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    if (parts[0] === 'ko') parts.shift();
+    if (!parts.length) return '/';
+    const lastIdx = parts.length - 1;
+    parts[lastIdx] = parts[lastIdx].replace(/-ko$/, '');
+    if (parts.length === 1 && parts[0] === 'home') return '/';
+    return '/' + parts.join('/') + '/';
+  }
+
+  function syncLanguageSwitcher(){
+    if (!pageHeader) return;
+
+    const enLink = pageHeader.querySelector('.header-topbar__link[data-lang="en"]');
+    const koLink = pageHeader.querySelector('.header-topbar__link[data-lang="ko"]');
+    if (!enLink || !koLink) return;
+
+    const path = window.location.pathname || '/';
+    const trimmed = path.replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    const isKo = parts[0] === 'ko';
+    const enPath = toEnPath(path);
+    const koPath = toKoPath(path);
+
+    enLink.href = enPath + window.location.search + window.location.hash;
+    koLink.href = koPath + window.location.search + window.location.hash;
+
+    enLink.classList.toggle('is-active', !isKo);
+    koLink.classList.toggle('is-active', isKo);
+
+    if (!isKo) {
+      enLink.setAttribute('aria-current', 'true');
+      koLink.removeAttribute('aria-current');
+    } else {
+      koLink.setAttribute('aria-current', 'true');
+      enLink.removeAttribute('aria-current');
+    }
+  }
+
+  function syncKoNavLinks(){
+    if (!pageHeader) return;
+
+    const path = window.location.pathname || '/';
+    const trimmed = path.replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    const isKo = parts[0] === 'ko';
+    if (!isKo) return;
+
+    const links = pageHeader.querySelectorAll('#navbar a[href]');
+    links.forEach(function (link) {
+      const rawHref = link.getAttribute('href');
+      if (!rawHref) return;
+      if (
+        rawHref.startsWith('#') ||
+        rawHref.startsWith('mailto:') ||
+        rawHref.startsWith('tel:') ||
+        rawHref.startsWith('javascript:')
+      ) {
+        return;
+      }
+
+      let url;
+      try {
+        url = new URL(rawHref, window.location.origin);
+      } catch (e) {
+        return;
+      }
+
+      if (url.origin !== window.location.origin) return;
+      if (
+        url.pathname.startsWith('/wp-admin') ||
+        url.pathname.startsWith('/wp-content') ||
+        url.pathname.startsWith('/wp-includes')
+      ) {
+        return;
+      }
+
+      const newPath = toKoPath(url.pathname);
+      link.setAttribute('href', newPath + url.search + url.hash);
+    });
+  }
+
+  function syncKoNavLabels(){
+    if (!pageHeader) return;
+
+    const path = window.location.pathname || '/';
+    const trimmed = path.replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    const isKo = parts[0] === 'ko';
+
+    const labels = {
+      home: { en: 'Home', ko: '집' },
+      about: { en: 'About Us', ko: '회사 소개' },
+      community: { en: 'Community', ko: '커뮤니티' },
+      travel_savvy: { en: 'Travel Savvy', ko: '여행 정보' },
+      destination: { en: 'Destination', ko: '여행지' },
+      region: { en: 'Region', ko: '지역' },
+      south_korea: { en: 'South Korea', ko: '한국' },
+      japan: { en: 'Japan', ko: '일본' },
+      thailand: { en: 'Thailand', ko: '태국' },
+      blog: { en: 'Blog', ko: '블로그' },
+      contact: { en: 'Contact', ko: '문의' }
+    };
+
+    pageHeader.querySelectorAll('[data-i18n-key]').forEach(function (el) {
+      const key = el.getAttribute('data-i18n-key');
+      const dict = key ? labels[key] : null;
+      if (!dict) return;
+      el.textContent = isKo ? dict.ko : dict.en;
+    });
+  }
 
   function syncCollapsed(){
     // start closed in all “collapsed” ranges
@@ -64,8 +200,10 @@
     if (y > STICKY_AT){
       navbar.classList.add('is-sticky');
       navbar.classList.remove('menu-open');
+      if (pageHeader) pageHeader.classList.add('hide-topbar');
     } else {
       navbar.classList.remove('is-sticky');
+      if (pageHeader) pageHeader.classList.remove('hide-topbar');
       if (collapse.classList.contains('show')) navbar.classList.add('menu-open');
       else navbar.classList.remove('menu-open');
     }
@@ -80,7 +218,7 @@
   });
 
   // init + listeners
-  document.addEventListener('DOMContentLoaded', () => { syncCollapsed(); syncOnScroll(); });
+  document.addEventListener('DOMContentLoaded', () => { syncLanguageSwitcher(); syncKoNavLinks(); syncKoNavLabels(); syncCollapsed(); syncOnScroll(); });
   window.addEventListener('resize', () => { clearTimeout(window._nav_r); window._nav_r = setTimeout(syncCollapsed, 120); }, { passive: true });
   window.addEventListener('scroll', syncOnScroll, { passive: true });
 })();

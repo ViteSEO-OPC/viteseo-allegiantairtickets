@@ -1,7 +1,17 @@
 <!-- ✅ MAIN NAVBAR -->
 <header class="page-header">
+    <div class="header-topbar" role="navigation" aria-label="Language switcher">
+      <div class="container">
+        <div class="header-topbar__inner">
+          <span class="header-topbar__label">Language:</span>
+          <a class="header-topbar__link" href="/" lang="en" data-lang="en">English</a>
+          <span class="header-topbar__sep">|</span>
+          <a class="header-topbar__link" href="/ko/" lang="ko" data-lang="ko">Korean</a>
+        </div>
+      </div>
+    </div>
 
-    <nav id="navbar" class="navbar navbar-expand-1462 navbar-light">
+    <nav id="navbar" class="navbar navbar-expand-1024 navbar-light">
       <div class="container py-2">
 
         <a class="brand-link d-flex align-items-center" href="/">
@@ -15,13 +25,13 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-xxl-auto mb-2 mt-2 mt-xxl-0 gap-2 mb-xxl-0">
-            <li class="nav-item"><a class="nav-link" href="/community">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/community/discover/">Discover</a></li>
-            <li class="nav-item"><a class="nav-link" href="/community/publish-content/">Publish Content</a></li>
-            <li class="nav-item"><a class="nav-link" href="/community/submit-post/">Submit Post</a></li>
+          <ul class="navbar-nav ms-lg-auto mb-2 mt-2 mt-lg-0 gap-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/community" data-i18n-key="home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/community/discover/" data-i18n-key="discover">Discover</a></li>
+            <li class="nav-item"><a class="nav-link" href="/community/publish-content/" data-i18n-key="publish_content">Publish Content</a></li>
+            <li class="nav-item"><a class="nav-link" href="/community/submit-post/" data-i18n-key="submit_post">Submit Post</a></li>
             <!-- Auth block -->
-            <li class="nav-item d-flex align-items-center ms-xxl-3">
+            <li class="nav-item d-flex align-items-center ms-lg-3">
               <!-- icon link – JS will change href -->
               <a href="/login" class="nav-login-icon-link me-2">
                 <i class="fas fa-user nav-login-icon"></i>
@@ -39,11 +49,130 @@
 </header>
 <script>
 (function(){
-  const MOBILE_MAX = 1461;
+  const MOBILE_MAX = 1023;
   const STICKY_AT  = 150;
 
   const navbar   = document.getElementById('navbar');
   const collapse = document.getElementById('navbarMain');
+  const pageHeader = navbar ? navbar.closest('.page-header') : null;
+
+  function toKoPath(pathname){
+    const trimmed = (pathname || '/').replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    if (parts[0] === 'ko') parts.shift();
+    if (!parts.length) return '/ko/';
+    const lastIdx = parts.length - 1;
+    if (!parts[lastIdx].endsWith('-ko')) {
+      parts[lastIdx] = parts[lastIdx] + '-ko';
+    }
+    return '/ko/' + parts.join('/') + '/';
+  }
+
+  function toEnPath(pathname){
+    const trimmed = (pathname || '/').replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    if (parts[0] === 'ko') parts.shift();
+    if (!parts.length) return '/';
+    const lastIdx = parts.length - 1;
+    parts[lastIdx] = parts[lastIdx].replace(/-ko$/, '');
+    if (parts.length === 1 && parts[0] === 'home') return '/';
+    return '/' + parts.join('/') + '/';
+  }
+
+  function syncLanguageSwitcher(){
+    if (!pageHeader) return;
+
+    const enLink = pageHeader.querySelector('.header-topbar__link[data-lang="en"]');
+    const koLink = pageHeader.querySelector('.header-topbar__link[data-lang="ko"]');
+    if (!enLink || !koLink) return;
+
+    const path = window.location.pathname || '/';
+    const trimmed = path.replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    const isKo = parts[0] === 'ko';
+    const enPath = toEnPath(path);
+    const koPath = toKoPath(path);
+
+    enLink.href = enPath + window.location.search + window.location.hash;
+    koLink.href = koPath + window.location.search + window.location.hash;
+
+    enLink.classList.toggle('is-active', !isKo);
+    koLink.classList.toggle('is-active', isKo);
+
+    if (!isKo) {
+      enLink.setAttribute('aria-current', 'true');
+      koLink.removeAttribute('aria-current');
+    } else {
+      koLink.setAttribute('aria-current', 'true');
+      enLink.removeAttribute('aria-current');
+    }
+  }
+
+  function syncKoNavLinks(){
+    if (!pageHeader) return;
+
+    const path = window.location.pathname || '/';
+    const trimmed = path.replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    const isKo = parts[0] === 'ko';
+    if (!isKo) return;
+
+    const links = pageHeader.querySelectorAll('#navbar a[href]');
+    links.forEach(function (link) {
+      const rawHref = link.getAttribute('href');
+      if (!rawHref) return;
+      if (
+        rawHref.startsWith('#') ||
+        rawHref.startsWith('mailto:') ||
+        rawHref.startsWith('tel:') ||
+        rawHref.startsWith('javascript:')
+      ) {
+        return;
+      }
+
+      let url;
+      try {
+        url = new URL(rawHref, window.location.origin);
+      } catch (e) {
+        return;
+      }
+
+      if (url.origin !== window.location.origin) return;
+      if (
+        url.pathname.startsWith('/wp-admin') ||
+        url.pathname.startsWith('/wp-content') ||
+        url.pathname.startsWith('/wp-includes')
+      ) {
+        return;
+      }
+
+      const newPath = toKoPath(url.pathname);
+      link.setAttribute('href', newPath + url.search + url.hash);
+    });
+  }
+
+  function syncKoNavLabels(){
+    if (!pageHeader) return;
+
+    const path = window.location.pathname || '/';
+    const trimmed = path.replace(/^\/+|\/+$/g, '');
+    const parts = trimmed ? trimmed.split('/') : [];
+    const isKo = parts[0] === 'ko';
+
+    const labels = {
+      home: { en: 'Home', ko: '집' },
+      discover: { en: 'Discover', ko: '탐색' },
+      publish_content: { en: 'Publish Content', ko: '콘텐츠 게시' },
+      submit_post: { en: 'Submit Post', ko: '게시물 제출' }
+    };
+
+    pageHeader.querySelectorAll('[data-i18n-key]').forEach(function (el) {
+      const key = el.getAttribute('data-i18n-key');
+      const dict = key ? labels[key] : null;
+      if (!dict) return;
+      el.textContent = isKo ? dict.ko : dict.en;
+    });
+  }
 
   function syncCollapsed(){
     // start closed in all “collapsed” ranges
@@ -62,8 +191,10 @@
     if (y > STICKY_AT){
       navbar.classList.add('is-sticky');
       navbar.classList.remove('menu-open');
+      if (pageHeader) pageHeader.classList.add('hide-topbar');
     } else {
       navbar.classList.remove('is-sticky');
+      if (pageHeader) pageHeader.classList.remove('hide-topbar');
       if (collapse.classList.contains('show')) navbar.classList.add('menu-open');
       else navbar.classList.remove('menu-open');
     }
@@ -78,7 +209,7 @@
   });
 
   // init + listeners
-  document.addEventListener('DOMContentLoaded', () => { syncCollapsed(); syncOnScroll(); });
+  document.addEventListener('DOMContentLoaded', () => { syncLanguageSwitcher(); syncKoNavLinks(); syncKoNavLabels(); syncCollapsed(); syncOnScroll(); });
   window.addEventListener('resize', () => { clearTimeout(window._nav_r); window._nav_r = setTimeout(syncCollapsed, 120); }, { passive: true });
   window.addEventListener('scroll', syncOnScroll, { passive: true });
 })();

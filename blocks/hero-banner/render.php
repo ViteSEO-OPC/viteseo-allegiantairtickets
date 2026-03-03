@@ -87,7 +87,10 @@ $animate  = $attrs['animation'] ? 'true' : 'false';
     <div class="hero-banner__scrim">
       <?php if ( $title ) : ?>
         <h1 class="hero-banner__title<?php echo esc_attr( $title_shadow ); ?>">
-          <span class="hero-banner__title-text"><?php echo wp_kses_post( $title ); ?></span>
+          <!-- <span class="hero-banner__title-text"><?php echo wp_kses_post( $title ); ?></span> -->
+          <span class="hero-banner__title-text" data-text="<?php echo esc_attr( wp_strip_all_tags( $title ) ); ?>">
+            <?php echo wp_kses_post( $title ); ?>
+          </span>
         </h1>
         <div class="hero-banner__rule" aria-hidden="true"></div>
       <?php endif; ?>

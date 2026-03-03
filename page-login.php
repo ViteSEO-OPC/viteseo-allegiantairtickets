@@ -284,7 +284,7 @@ $redirect = ! empty( $_GET['redirect_to'] )
 
         <?php
         $register_page = get_page_by_path( 'community-register' );
-        $register_url  = $register_page ? get_permalink( $register_page ) : wp_registration_url();
+        $register_url  = home_url( '/register/' ); //$register_page ? get_permalink( $register_page ) : wp_registration_url();
         ?>
         <div class="register-row">
             <span>Don’t have an account?</span>

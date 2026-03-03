@@ -28,6 +28,50 @@ header.wp-block-template-part {
   background: transparent; 
 }
 
+/* ===== Top language bar ===== */
+.header-topbar{
+  background:#f7f7f7;
+  border-bottom:1px solid #e7e7e7;
+}
+.header-topbar .container{
+  max-width:100%;
+  padding-left:var(--page-gutter-left);
+  padding-right:var(--page-gutter-right);
+}
+.header-topbar__inner{
+  min-height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  font-size:12px;
+  line-height:1;
+  color:#6b7280;
+}
+.header-topbar__label{
+  color:#6b7280;
+}
+.header-topbar__link{
+  color:#4b5563;
+  text-decoration:none;
+  font-weight:500;
+}
+.header-topbar__link:hover,
+.header-topbar__link:focus-visible{
+  color:var(--nav-accent);
+}
+.header-topbar__link.is-active{
+  color:var(--nav-accent);
+}
+.header-topbar__sep{
+  color:#9ca3af;
+}
+
+/* Hide top strip when navbar enters sticky/color-changed state */
+.page-header.hide-topbar .header-topbar{
+  display:none;
+}
+
 /* Your existing navbar rules still apply */
 #navbar {
   position: sticky;
@@ -289,53 +333,56 @@ body.scrolled #navbar{
 
 /* This is end header-community */
 
-/* Force hamburger between 1400 and 1461.98 */
-@media (min-width:1400px) and (max-width:1461.98px){
-  /* Show the burger in this band */
-  .navbar-expand-xxl .navbar-toggler{ display:block !important; }
+/* Keep your existing <=1199 visual tweaks (header using navbar-expand-1200) */
+@media (max-width:1199.98px){
+  #navbar.navbar-expand-1200 .dropdown-menu{ position:static; float:none; box-shadow:none; width:100%; margin-top:.5rem; }
+  #navbar.navbar-expand-1200 .nav-link{ color:#000 !important; background:transparent !important; }
+  #navbar.navbar-expand-1200 .nav-link .fx-char{ transition:none !important; transform:none !important; }
+  #navbar.navbar-expand-1200 .nav-link .fx-stack{ height:auto; line-height:1.1em; overflow:visible; text-shadow:none !important; }
+  #navbar.navbar-expand-1200 .nav-link .fx-bottom{ display:none !important; }
+  #navbar.navbar-expand-1200 .nav-link .fx-wrap::before,
+  #navbar.navbar-expand-1200 .nav-link .fx-wrap::after{ display:none !important; animation:none !important; }
+  #navbar.navbar-expand-1200 .nav-link:active,
+  #navbar.navbar-expand-1200 .nav-link:focus,
+  #navbar.navbar-expand-1200 .nav-link:focus-visible{ color:tomato !important; background:transparent !important; }
+  #navbar.navbar-expand-1200 .nav-item .nav-link.active,
+  #navbar.navbar-expand-1200 .nav-item.show > .nav-link{ color:#fff !important; background:tomato !important; }
 
-  /* Neutralize Bootstrap’s xxl expand */
-  .navbar-expand-xxl .navbar-collapse{
-    display:block !important;          /* beat display:flex !important */
-    flex-basis:100% !important;         /* full width when opened */
-  }
-
-  /* Closed by default */
-  #navbarMain.collapse{ display:none !important; }
-
-  /* Visible when toggled + during animation */
-  #navbarMain.collapse.show,
-  #navbarMain.collapsing{ display:block !important; }
-
-  /* Vertical stack when open */
-  .navbar-expand-xxl .navbar-nav{ flex-direction:column; gap:.5rem; }
-}
-
-
-/* Keep your existing ≤1461 visual tweaks */
-@media (max-width:1461.98px){
-  #navbar .dropdown-menu{ position:static; float:none; box-shadow:none; width:100%; margin-top:.5rem; }
-  #navbar .nav-link{ color:#000 !important; background:transparent !important; }
-  #navbar .nav-link .fx-char{ transition:none !important; transform:none !important; }
-  #navbar .nav-link .fx-stack{ height:auto; line-height:1.1em; overflow:visible; text-shadow:none !important; }
-  #navbar .nav-link .fx-bottom{ display:none !important; }
-  #navbar .nav-link .fx-wrap::before,
-  #navbar .nav-link .fx-wrap::after{ display:none !important; animation:none !important; }
-  #navbar .nav-link:active,
-  #navbar .nav-link:focus,
-  #navbar .nav-link:focus-visible{ color:tomato !important; background:transparent !important; }
-  #navbar .nav-item .nav-link.active,
-  #navbar .nav-item.show > .nav-link{ color:#fff !important; background:tomato !important; }
-  
   /* Disable desktop underline on mobile to avoid double active state */
-  #navbar .nav-link::before { display: none !important; }
+  #navbar.navbar-expand-1200 .nav-link::before { display: none !important; }
 }
 
-/* Collapsed behavior ≤1461: full-width stack, left aligned */
-@media (max-width:1461.98px){
-  #navbar .navbar-collapse{ width:100%; }
-  #navbar .navbar-nav{ align-items:flex-start; }
-  #navbar .dropdown-menu{ position:static; float:none; box-shadow:none; width:100%; margin-top:.5rem; }
+/* Keep your existing <=1023 visual tweaks (header using navbar-expand-1024) */
+@media (max-width:1023.98px){
+  #navbar.navbar-expand-1024 .dropdown-menu{ position:static; float:none; box-shadow:none; width:100%; margin-top:.5rem; }
+  #navbar.navbar-expand-1024 .nav-link{ color:#000 !important; background:transparent !important; }
+  #navbar.navbar-expand-1024 .nav-link .fx-char{ transition:none !important; transform:none !important; }
+  #navbar.navbar-expand-1024 .nav-link .fx-stack{ height:auto; line-height:1.1em; overflow:visible; text-shadow:none !important; }
+  #navbar.navbar-expand-1024 .nav-link .fx-bottom{ display:none !important; }
+  #navbar.navbar-expand-1024 .nav-link .fx-wrap::before,
+  #navbar.navbar-expand-1024 .nav-link .fx-wrap::after{ display:none !important; animation:none !important; }
+  #navbar.navbar-expand-1024 .nav-link:active,
+  #navbar.navbar-expand-1024 .nav-link:focus,
+  #navbar.navbar-expand-1024 .nav-link:focus-visible{ color:tomato !important; background:transparent !important; }
+  #navbar.navbar-expand-1024 .nav-item .nav-link.active,
+  #navbar.navbar-expand-1024 .nav-item.show > .nav-link{ color:#fff !important; background:tomato !important; }
+
+  /* Disable desktop underline on mobile to avoid double active state */
+  #navbar.navbar-expand-1024 .nav-link::before { display: none !important; }
+}
+
+/* Collapsed behavior <=1199: full-width stack, left aligned (navbar-expand-1200) */
+@media (max-width:1199.98px){
+  #navbar.navbar-expand-1200 .navbar-collapse{ width:100%; }
+  #navbar.navbar-expand-1200 .navbar-nav{ align-items:flex-start; }
+  #navbar.navbar-expand-1200 .dropdown-menu{ position:static; float:none; box-shadow:none; width:100%; margin-top:.5rem; }
+}
+
+/* Collapsed behavior <=1023: full-width stack, left aligned (navbar-expand-1024) */
+@media (max-width:1023.98px){
+  #navbar.navbar-expand-1024 .navbar-collapse{ width:100%; }
+  #navbar.navbar-expand-1024 .navbar-nav{ align-items:flex-start; }
+  #navbar.navbar-expand-1024 .dropdown-menu{ position:static; float:none; box-shadow:none; width:100%; margin-top:.5rem; }
 }
 
 /* Keyframes */
@@ -368,33 +415,43 @@ body.scrolled #navbar{
   }
 }
 
-/* <1462: collapsed (you already had this) */
-@media (max-width:1461.98px){
-  .navbar-expand-1462 .navbar-toggler{ display:block; }
-  .navbar-expand-1462 .navbar-collapse.collapse{ display:none; }
-  .navbar-expand-1462 .navbar-collapse.collapse.show,
-  .navbar-expand-1462 .navbar-collapse.collapsing{ display:block; }
-  .navbar-expand-1462 .navbar-nav{ flex-direction:column; gap:.5rem; }
-  .navbar-expand-1462 .dropdown-menu{ position:static; box-shadow:none; width:100%; margin-top:.5rem; }
+/* <=1199: collapsed */
+@media (max-width:1199.98px){
+  .navbar-expand-1200 .navbar-toggler{ display:block; }
+  .navbar-expand-1200 .navbar-collapse.collapse{ display:none; }
+  .navbar-expand-1200 .navbar-collapse.collapse.show,
+  .navbar-expand-1200 .navbar-collapse.collapsing{ display:block; }
+  .navbar-expand-1200 .navbar-nav{ flex-direction:column; gap:.5rem; }
+  .navbar-expand-1200 .dropdown-menu{ position:static; box-shadow:none; width:100%; margin-top:.5rem; }
 }
 
-/* ≥1462: desktop inline — replicate Bootstrap expand behavior */
-@media (min-width:1462px){
-  .navbar-expand-1462{ flex-wrap:nowrap; }
-  .navbar-expand-1462 .navbar-toggler{ display:none !important; }
-  .navbar-expand-1462 .navbar-collapse{
+/* <=1023: collapsed */
+@media (max-width:1023.98px){
+  .navbar-expand-1024 .navbar-toggler{ display:block; }
+  .navbar-expand-1024 .navbar-collapse.collapse{ display:none; }
+  .navbar-expand-1024 .navbar-collapse.collapse.show,
+  .navbar-expand-1024 .navbar-collapse.collapsing{ display:block; }
+  .navbar-expand-1024 .navbar-nav{ flex-direction:column; gap:.5rem; }
+  .navbar-expand-1024 .dropdown-menu{ position:static; box-shadow:none; width:100%; margin-top:.5rem; }
+}
+
+/* >=1200: desktop inline — replicate Bootstrap expand behavior */
+@media (min-width:1200px){
+  .navbar-expand-1200{ flex-wrap:nowrap; }
+  .navbar-expand-1200 .navbar-toggler{ display:none !important; }
+  .navbar-expand-1200 .navbar-collapse{
     display:flex !important;
     flex-basis:auto !important;   /* key */
   }
-  .navbar-expand-1462 .navbar-nav{
+  .navbar-expand-1200 .navbar-nav{
     flex-direction:row !important; /* key */
     align-items:center;
   }
-  .navbar-expand-1462 .navbar-nav .nav-link{
+  .navbar-expand-1200 .navbar-nav .nav-link{
     padding-right:.5rem;
     padding-left:.5rem;
   }
-  .navbar-expand-1462 .dropdown-menu{
+  .navbar-expand-1200 .dropdown-menu{
     position:absolute;            /* return to overlay dropdowns */
     float:none;
     box-shadow:0 8px 24px rgba(0,0,0,.08);
@@ -403,13 +460,38 @@ body.scrolled #navbar{
   }
 }
 
-/* ≥1462: desktop dropdown should not affect layout */
-@media (min-width:1462px){
+/* >=1024: desktop inline — replicate Bootstrap expand behavior */
+@media (min-width:1024px){
+  .navbar-expand-1024{ flex-wrap:nowrap; }
+  .navbar-expand-1024 .navbar-toggler{ display:none !important; }
+  .navbar-expand-1024 .navbar-collapse{
+    display:flex !important;
+    flex-basis:auto !important;
+  }
+  .navbar-expand-1024 .navbar-nav{
+    flex-direction:row !important;
+    align-items:center;
+  }
+  .navbar-expand-1024 .navbar-nav .nav-link{
+    padding-right:.5rem;
+    padding-left:.5rem;
+  }
+  .navbar-expand-1024 .dropdown-menu{
+    position:absolute;
+    float:none;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+    width:auto;
+    margin-top:0;
+  }
+}
+
+/* >=1200: desktop dropdown should not affect layout */
+@media (min-width:1200px){
   /* anchor the absolute menu */
-  #navbar.navbar-expand-1462 .nav-item.dropdown{ position:relative; }
+  #navbar.navbar-expand-1200 .nav-item.dropdown{ position:relative; }
 
   /* detach from flow; animate via opacity/transform only */
-  #navbar.navbar-expand-1462 .nav-item.dropdown > .dropdown-menu{
+  #navbar.navbar-expand-1200 .nav-item.dropdown > .dropdown-menu{
     position:absolute;
     top:100%;
     left:0;                 /* default left-align */
@@ -421,8 +503,8 @@ body.scrolled #navbar{
     transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
   }
 
-  #navbar.navbar-expand-1462 .nav-item.dropdown:hover   > .dropdown-menu,
-  #navbar.navbar-expand-1462 .nav-item.dropdown:focus-within > .dropdown-menu{
+  #navbar.navbar-expand-1200 .nav-item.dropdown:hover   > .dropdown-menu,
+  #navbar.navbar-expand-1200 .nav-item.dropdown:focus-within > .dropdown-menu{
     opacity:1;
     visibility:visible;
     transform:none;
@@ -430,6 +512,34 @@ body.scrolled #navbar{
   }
 
   /* keep the nav row tight and centered */
-  #navbar.navbar-expand-1462 .navbar-collapse{ align-items:center; }
-  #navbar.navbar-expand-1462 #navbarMain > .navbar-nav{ margin-top:0; margin-bottom:0; }
+  #navbar.navbar-expand-1200 .navbar-collapse{ align-items:center; }
+  #navbar.navbar-expand-1200 #navbarMain > .navbar-nav{ margin-top:0; margin-bottom:0; }
+}
+
+/* >=1024: desktop dropdown should not affect layout */
+@media (min-width:1024px){
+  #navbar.navbar-expand-1024 .nav-item.dropdown{ position:relative; }
+
+  #navbar.navbar-expand-1024 .nav-item.dropdown > .dropdown-menu{
+    position:absolute;
+    top:100%;
+    left:0;
+    margin:0;
+    display:block;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(8px);
+    transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+
+  #navbar.navbar-expand-1024 .nav-item.dropdown:hover   > .dropdown-menu,
+  #navbar.navbar-expand-1024 .nav-item.dropdown:focus-within > .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    transition-delay:0s;
+  }
+
+  #navbar.navbar-expand-1024 .navbar-collapse{ align-items:center; }
+  #navbar.navbar-expand-1024 #navbarMain > .navbar-nav{ margin-top:0; margin-bottom:0; }
 }
