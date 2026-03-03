@@ -128,7 +128,18 @@ add_filter('render_block', function ($block_content, $block) {
         return $block_content;
     }
 
-    return do_blocks($part_markup);
+    $rendered_part = do_blocks($part_markup);
+
+    $tag_name = strtolower((string) ($block['attrs']['tagName'] ?? 'div'));
+    if (!in_array($tag_name, ['header', 'footer', 'div', 'section', 'aside', 'main'], true)) {
+        $tag_name = 'div';
+    }
+
+    return sprintf(
+        '<%1$s class="wp-block-template-part">%2$s</%1$s>',
+        esc_attr($tag_name),
+        $rendered_part
+    );
 }, 20, 2);
 
 add_action('wp_enqueue_scripts', function () {
