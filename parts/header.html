@@ -52,7 +52,6 @@
 <script>
 (function(){
   const MOBILE_MAX = 1199;
-  const STICKY_AT  = 150;
 
   const navbar   = document.getElementById('navbar');
   const collapse = document.getElementById('navbarMain');
@@ -197,16 +196,10 @@
 
   function syncOnScroll(){
     const y = window.pageYOffset || document.documentElement.scrollTop;
-    if (y > STICKY_AT){
-      navbar.classList.add('is-sticky');
-      navbar.classList.remove('menu-open');
-      if (pageHeader) pageHeader.classList.add('hide-topbar');
-    } else {
-      navbar.classList.remove('is-sticky');
-      if (pageHeader) pageHeader.classList.remove('hide-topbar');
-      if (collapse.classList.contains('show')) navbar.classList.add('menu-open');
-      else navbar.classList.remove('menu-open');
-    }
+    if (pageHeader) pageHeader.classList.toggle('hide-topbar', y > 0);
+    navbar.classList.remove('is-sticky');
+    if (collapse.classList.contains('show')) navbar.classList.add('menu-open');
+    else navbar.classList.remove('menu-open');
   }
 
   // collapse open/close -> header background management

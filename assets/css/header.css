@@ -32,6 +32,16 @@ header.wp-block-template-part {
 .header-topbar{
   background:#f7f7f7;
   border-bottom:1px solid #e7e7e7;
+  max-height:40px;
+  opacity:1;
+  transform:translateY(0);
+  overflow:hidden;
+  will-change:max-height, opacity, transform;
+  transition:
+    max-height .28s ease,
+    opacity .2s ease,
+    transform .28s ease,
+    border-color .28s ease;
 }
 .header-topbar .container{
   max-width:100%;
@@ -69,7 +79,11 @@ header.wp-block-template-part {
 
 /* Hide top strip when navbar enters sticky/color-changed state */
 .page-header.hide-topbar .header-topbar{
-  display:none;
+  max-height:0;
+  opacity:0;
+  transform:translateY(-6px);
+  border-bottom-color:transparent;
+  pointer-events:none;
 }
 
 /* Your existing navbar rules still apply */
@@ -79,6 +93,7 @@ header.wp-block-template-part {
   z-index: 10001;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 0px;
+  background: #FDCD3B;
 }
 
 body.scrolled #navbar{
@@ -252,7 +267,7 @@ body.scrolled #navbar{
 
 /* Mobile menu open = white */
 .navbar.menu-open {
-  background-color: #fff;
+  background-color: #FDCD3B;
   box-shadow: 0 5px 16px rgba(0,0,0,0.1);
 }
 
