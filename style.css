@@ -228,7 +228,7 @@ body {
 /* Make the default CF7 contact form mimic the two-column layout */
 .cf7-contact {
   display: grid;
-  /* grid-template-columns: 1fr; */
+  grid-template-columns: 1fr 1fr;
   gap: 18px 16px;
 }
 .cf7-contact p {
@@ -241,6 +241,15 @@ body {
 .cf7-contact p:nth-of-type(3),
 .cf7-contact p:nth-of-type(4) {
   grid-column: 1 / -1;
+}
+.cf7-contact p:last-of-type {
+  grid-column: 1 / -1;
+}
+.cf7-contact label{
+  display:block;
+  font-weight:700;
+  color:#333;
+  margin:0;
 }
 .cf7-contact input[type='text'],
 .cf7-contact input[type='email'],
@@ -280,7 +289,8 @@ body {
 }
 
 .cf7-grid .btn,
-.wpcf7 form .btn-primary {
+.wpcf7 form .btn-primary,
+.wpcf7 form input.wpcf7-submit {
   display: inline-block;
   background: #ff5e3a;
   color: #fff;
@@ -294,7 +304,8 @@ body {
   font-size: 1rem;
   transition: all 0.2s ease;
 }
-.wpcf7 form .btn-primary:hover {
+.wpcf7 form .btn-primary:hover,
+.wpcf7 form input.wpcf7-submit:hover {
   background: #e04828;
   border-color: #e04828;
   color: #fff;
