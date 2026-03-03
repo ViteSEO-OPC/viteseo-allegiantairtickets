@@ -37,6 +37,18 @@ function ileg_filter_get_avatar_url($url, $id_or_email, $args)
 
     return $url;
 }
+
+if (!function_exists('ileg_asset_ver')) {
+    function ileg_asset_ver($relative_path)
+    {
+        $full_path = get_stylesheet_directory() . $relative_path;
+        if (file_exists($full_path)) {
+            return (string) filemtime($full_path);
+        }
+        return wp_get_theme()->get('Version');
+    }
+}
+
 add_action('wp_enqueue_scripts', function () {
     // Parent first
     wp_enqueue_style(
@@ -59,7 +71,7 @@ add_action('wp_enqueue_scripts', function () {
         'ileg-header',
         get_stylesheet_directory_uri() . '/assets/css/header.css',
         ['ileg-child-style'],
-        wp_get_theme()->get('Version')
+        ileg_asset_ver('/assets/css/header.css')
     );
     // wp_enqueue_style(
     //   'ileg-header-community',
@@ -71,7 +83,7 @@ add_action('wp_enqueue_scripts', function () {
         'ileg-footer',
         get_stylesheet_directory_uri() . '/assets/css/footer.css',
         ['ileg-child-style'],
-        wp_get_theme()->get('Version')
+        ileg_asset_ver('/assets/css/footer.css')
     );
 
     // Scripts
@@ -79,7 +91,7 @@ add_action('wp_enqueue_scripts', function () {
         'ileg-app',
         get_stylesheet_directory_uri() . '/assets/js/app.js',
         [],
-        wp_get_theme()->get('Version'),
+        ileg_asset_ver('/assets/js/app.js'),
         true
     );
 
@@ -87,10 +99,37 @@ add_action('wp_enqueue_scripts', function () {
         'ileg-header-active-links',
         get_stylesheet_directory_uri() . '/assets/js/header-active-links.js',
         [],
-        wp_get_theme()->get('Version'),
+        ileg_asset_ver('/assets/js/header-active-links.js'),
         true
     );
 });
+
+add_filter('render_block', function ($block_content, $block) {
+    if (is_admin()) {
+        return $block_content;
+    }
+
+    if (($block['blockName'] ?? '') !== 'core/template-part') {
+        return $block_content;
+    }
+
+    $slug = $block['attrs']['slug'] ?? '';
+    if (!in_array($slug, ['header', 'header-community'], true)) {
+        return $block_content;
+    }
+
+    $part_file = get_stylesheet_directory() . "/parts/{$slug}.html";
+    if (!file_exists($part_file)) {
+        return $block_content;
+    }
+
+    $part_markup = file_get_contents($part_file);
+    if ($part_markup === false || trim($part_markup) === '') {
+        return $block_content;
+    }
+
+    return do_blocks($part_markup);
+}, 20, 2);
 
 add_action('wp_enqueue_scripts', function () {
     // Detect common Bootstrap handles (best-effort)
@@ -186,7 +225,7 @@ add_action('wp_enqueue_scripts', function () {
         'ileg-auth-header',
         get_stylesheet_directory_uri() . '/assets/js/auth-header.js',
         [],
-        wp_get_theme()->get('Version'),
+        ileg_asset_ver('/assets/js/auth-header.js'),
         true
     );
 
