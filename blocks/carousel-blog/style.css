@@ -44,7 +44,12 @@
   display:inline-block; 
   padding-bottom:.25rem; 
   width: 75%;}
-.carousel-blog__sub{ margin:.25rem auto 0; font-size:var(--sub); color: var(--color);}
+.carousel-blog__sub{ 
+  margin:.25rem auto 0; 
+  font-size:var(--sub); 
+  color: var(--color);
+  width: 70%;
+}
 
 /* Viewport + track */
 .carousel-blog__viewport{ overflow:hidden; position:relative; }

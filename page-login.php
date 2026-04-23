@@ -223,7 +223,7 @@ $redirect = ! empty( $_GET['redirect_to'] )
         <form
             name="loginform"
             id="loginform"
-            action="<?php echo esc_url( wp_login_url( $redirect ) ); ?>"
+            action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>"
             method="post"
         >
             <p class="login-username">

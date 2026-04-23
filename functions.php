@@ -242,6 +242,128 @@ add_filter('template_include', function ($template) {
     return $template;
 });
 
+if (!function_exists('ileg_get_frontend_auth_url')) {
+    /**
+     * Return the URL of a custom frontend auth page.
+     *
+     * @param string $type login|register|forgot|reset
+     */
+    function ileg_get_frontend_auth_url($type)
+    {
+        $type = sanitize_key((string) $type);
+        $map = [
+            'login' => ['login'],
+            'register' => ['register', 'community-register'],
+            'forgot' => ['forgot-password'],
+            'reset' => ['reset-password'],
+        ];
+
+        if (!isset($map[$type])) {
+            return '';
+        }
+
+        foreach ($map[$type] as $slug) {
+            $page = get_page_by_path($slug);
+            if ($page) {
+                return get_permalink($page);
+            }
+        }
+
+        return home_url('/' . $map[$type][0] . '/');
+    }
+}
+
+add_filter('login_url', function ($login_url, $redirect, $force_reauth) {
+    $custom_login = ileg_get_frontend_auth_url('login');
+    if (!$custom_login) {
+        return $login_url;
+    }
+
+    $args = [];
+    if (!empty($redirect)) {
+        $args['redirect_to'] = wp_validate_redirect($redirect, home_url('/'));
+    }
+    if ($force_reauth) {
+        $args['reauth'] = '1';
+    }
+
+    return add_query_arg($args, $custom_login);
+}, 10, 3);
+
+add_filter('lostpassword_url', function ($lostpassword_url, $redirect) {
+    $custom_forgot = ileg_get_frontend_auth_url('forgot');
+    if (!$custom_forgot) {
+        return $lostpassword_url;
+    }
+
+    if (!empty($redirect)) {
+        $custom_forgot = add_query_arg(
+            'redirect_to',
+            wp_validate_redirect($redirect, home_url('/')),
+            $custom_forgot
+        );
+    }
+
+    return $custom_forgot;
+}, 10, 2);
+
+add_filter('register_url', function ($register_url) {
+    $custom_register = ileg_get_frontend_auth_url('register');
+    return $custom_register ?: $register_url;
+});
+
+add_action('login_init', function () {
+    $request_method = strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
+    if ($request_method === 'POST') {
+        // Keep core login/lostpassword/reset handlers intact.
+        return;
+    }
+
+    $action = isset($_REQUEST['action'])
+        ? sanitize_key(wp_unslash($_REQUEST['action']))
+        : 'login';
+
+    // Do not hijack logout and other non-screen actions.
+    if (in_array($action, ['logout', 'postpass', 'confirmaction'], true)) {
+        return;
+    }
+
+    $target_type = 'login';
+    $allowed_args = ['redirect_to', 'reauth', 'login', 'password', 'checkemail', 'loggedout'];
+
+    if (in_array($action, ['lostpassword', 'retrievepassword'], true)) {
+        $target_type = 'forgot';
+        $allowed_args = ['redirect_to', 'checkemail', 'error'];
+    } elseif ($action === 'register') {
+        $target_type = 'register';
+        $allowed_args = ['redirect_to', 'registration', 'error'];
+    } elseif (in_array($action, ['rp', 'resetpass'], true)) {
+        $target_type = 'reset';
+        $allowed_args = ['key', 'login', 'error'];
+    }
+
+    $target = ileg_get_frontend_auth_url($target_type);
+    if (!$target) {
+        return;
+    }
+
+    $args = [];
+    foreach ($allowed_args as $key) {
+        if (!isset($_REQUEST[$key])) {
+            continue;
+        }
+        $raw = wp_unslash($_REQUEST[$key]);
+        if ($key === 'redirect_to') {
+            $args[$key] = wp_validate_redirect($raw, home_url('/'));
+        } else {
+            $args[$key] = sanitize_text_field((string) $raw);
+        }
+    }
+
+    wp_safe_redirect(add_query_arg($args, $target));
+    exit;
+});
+
 add_action('wp_enqueue_scripts', function () {
 
     // Make sure this runs after your main scripts are registered
@@ -816,11 +938,82 @@ add_filter('get_comment_date', function ($date, $format, $comment) {
 }, 10, 3);
 
 
+
+
+/* =================================================
+ * SEO: PER PAGE TITLE + META DESCRIPTION
+ * ================================================= */
+function ai_get_seo_page_meta_from_path()
+{
+    $path = wp_parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $path = is_string($path) ? strtolower(trim($path, '/')) : '';
+    $path = str_replace(' ', '-', $path);
+
+    $seo_map = [
+        'about-us' => [
+            'title' => 'About Us: Our Travel Mission',
+            'description' => 'Learn how we help travelers explore smarter and go further.',
+        ],
+        'community' => [
+            'title' => 'Share Your Journey. Inspire a Life Well-Lived.',
+            'description' => 'We invite you to join our community and contribute your most meaningful travel experiences.',
+        ],
+        'travel-intelligence' => [
+            'title' => 'Best Food & Culture Hotspots | Explore with Intera',
+            'description' => 'Plan smarter trips with easy travel tips, from packing light and finding the best insurance to staying safe, saving money, and exploring with confidence.',
+        ],
+        'regions' => [
+            'title' => 'Food, Culture, Hot Spots in One Map',
+            'description' => 'Check where the nearest food hub, best culture and pub spots are on maps using GPS tracker technology.',
+        ],
+        'south-korea' => [
+            'title' => 'South Korea Travel Guide | Seoul, K-Pop, Culture',
+            'description' => 'Experience South Korea like a local. Explore Seoul\'s top attractions, dive into Korean culture, visit must-see K-pop spots, and plan outdoor adventures with your free travel PDF.',
+        ],
+        'japan' => [
+            'title' => 'Japan Travel Guide | 7-Day Itinerary, Tokyo, Kyoto',
+            'description' => 'Experience Japan like never before. Follow a 7-day itinerary, find the best travel seasons, taste iconic foods, and explore Tokyo, Kyoto, and Japan\'s great outdoors.',
+        ],
+        'thailand' => [
+            'title' => 'Thailand Travel Guide | Islands, Bangkok, Food & Culture',
+            'description' => 'Explore Thailand with ease. Visit stunning islands, taste legendary street food, plan budget trips, and uncover Bangkok\'s best sights with free travel PDFs and maps.',
+        ],
+        'blogs' => [
+            'title' => 'Travel Blog | Stories, Hacks & Inspiration',
+            'description' => 'Read travel stories, hacks, and insights from global explorers.',
+        ],
+        'contact-us' => [
+            'title' => 'Contact Us | Travel Questions & Support',
+            'description' => 'Need help? Reach out for travel questions, feedback, and collaboration ideas.',
+        ],
+    ];
+
+    return $seo_map[$path] ?? null;
+}
+
+add_filter('pre_get_document_title', function ($title) {
+    if (is_admin()) {
+        return $title;
+    }
+    $seo = ai_get_seo_page_meta_from_path();
+    return !empty($seo['title']) ? $seo['title'] : $title;
+}, 99);
+
+add_action('wp_head', function () {
+    if (is_admin()) {
+        return;
+    }
+    $seo = ai_get_seo_page_meta_from_path();
+    if (!empty($seo['description'])) {
+        echo '<meta name="description" content="' . esc_attr($seo['description']) . '">' . "\n";
+    }
+}, 0);
+
 /* =================================================
  * SEO: ROBOTS META
  * ================================================= */
 add_action('wp_head', function () {
-    echo '<meta name="robots" content="noindex, nofollow">';
+    echo '<meta name="robots" content="index, follow">';
     return;
 }, 1);
 
@@ -828,5 +1021,5 @@ add_action('wp_head', function () {
  * GLOBAL ROBOTS HEADERS
  * ================================================= */
 add_action('send_headers', function () {
-    header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet', true);
+    header('X-Robots-Tag: index, follow, archive, snippet', true);
 });

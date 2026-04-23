@@ -5,19 +5,45 @@ if (!defined('ABSPATH')) {
 
 /** Helpers */
 if (!function_exists('cb_map_terms_to_ids')) {
-  function cb_map_terms_to_ids($maybe_ids_or_slugs, $taxonomy)
+  function cb_map_terms_to_ids($maybe_terms, $taxonomy)
   {
-    if (!is_array($maybe_ids_or_slugs) || empty($maybe_ids_or_slugs))
+    if (!is_array($maybe_terms) || empty($maybe_terms))
       return [];
     $ids = [];
-    foreach ($maybe_ids_or_slugs as $t) {
+    foreach ($maybe_terms as $t) {
+      $raw = trim((string) $t);
+      if ($raw === '') {
+        continue;
+      }
+
       if (is_numeric($t)) {
         $ids[] = intval($t);
         continue;
       }
-      $term = get_term_by('slug', sanitize_title($t), $taxonomy);
-      if ($term && !is_wp_error($term))
+
+      // Accept both slugs and human-readable names (e.g. "South Korea").
+      $term = get_term_by('slug', sanitize_title($raw), $taxonomy);
+      if (!$term || is_wp_error($term)) {
+        $term = get_term_by('name', $raw, $taxonomy);
+      }
+
+      if ((!$term || is_wp_error($term)) && taxonomy_exists($taxonomy)) {
+        $fallback = get_terms([
+          'taxonomy' => $taxonomy,
+          'hide_empty' => false,
+          'name__like' => $raw,
+          'number' => 1,
+          'fields' => 'ids',
+        ]);
+        if (!is_wp_error($fallback) && !empty($fallback)) {
+          $ids[] = intval($fallback[0]);
+          continue;
+        }
+      }
+
+      if ($term && !is_wp_error($term)) {
         $ids[] = intval($term->term_id);
+      }
     }
     return array_values(array_unique(array_filter($ids)));
   }
