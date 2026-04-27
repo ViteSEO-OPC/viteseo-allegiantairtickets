@@ -480,6 +480,36 @@ body {
 }
 .crumbs-wrap a:hover { color: #dc3545 !important; }
 
+/* Built-in fallback breadcrumb (renders when Rank Math is empty/disabled) */
+.ileg-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  color: #16324f;
+}
+.ileg-crumbs__item {
+  color: inherit;
+}
+.ileg-crumbs__link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.15s ease;
+}
+.ileg-crumbs__link:hover,
+.ileg-crumbs__link:focus-visible {
+  color: #FD593C;
+  text-decoration: underline;
+}
+.ileg-crumbs__item--current {
+  color: #FD593C;
+  font-weight: 700;
+}
+.ileg-crumbs__sep {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
 /* Hero */
 .single-hero {
   position: relative !important;

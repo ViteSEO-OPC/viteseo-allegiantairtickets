@@ -62,7 +62,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $footer_url && $footer_label ) : ?>
+		<?php if ( $footer_url && $footer_url !== '#' && $footer_label ) : ?>
 			<div class="banner-travel-savvy-lp__footer">
 				<a class="banner-travel-savvy-lp__footer-link" href="<?php echo esc_url( $footer_url ); ?>">
 					<?php echo esc_html( $footer_label ); ?>

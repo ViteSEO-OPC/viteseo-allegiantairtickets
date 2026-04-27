@@ -141,7 +141,7 @@ add_filter('render_block', function ($block_content, $block) {
         return $block_content;
     }
 
-    $rendered_part = do_blocks($part_markup);
+    $rendered_part = do_shortcode(do_blocks($part_markup));
 
     $tag_name = strtolower((string) ($block['attrs']['tagName'] ?? 'div'));
     if (!in_array($tag_name, ['header', 'footer', 'div', 'section', 'aside', 'main'], true)) {
@@ -1023,3 +1023,149 @@ add_action('wp_head', function () {
 add_action('send_headers', function () {
     header('X-Robots-Tag: index, follow, archive, snippet', true);
 });
+
+/* =================================================
+ * BREADCRUMBS — defensive wrapper usable in block templates
+ * Prefers Rank Math; falls back to its shortcode; otherwise
+ * renders a built-in breadcrumb so users always see a trail.
+ * Bilingual (EN/KO) based on /ko/... path.
+ * ================================================= */
+add_shortcode('ileg_breadcrumbs', function () {
+    // 1) Rank Math PHP API
+    if (function_exists('rank_math_the_breadcrumbs')) {
+        ob_start();
+        rank_math_the_breadcrumbs();
+        $out = trim((string) ob_get_clean());
+        if ($out !== '') {
+            return $out;
+        }
+    }
+
+    // 2) Rank Math shortcode (in case PHP fn is unavailable but shortcode is)
+    if (shortcode_exists('rank_math_breadcrumb')) {
+        $out = trim((string) do_shortcode('[rank_math_breadcrumb]'));
+        if ($out !== '' && $out !== '[rank_math_breadcrumb]') {
+            return $out;
+        }
+    }
+
+    // 3) Built-in fallback
+    $request_path = (string) wp_parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $is_ko = (bool) preg_match('#^/ko(?:/|$)#', $request_path);
+    $i18n  = $is_ko
+        ? ['home' => '홈', 'search' => '검색 결과: %s', 'archive' => '아카이브', 'page' => '페이지 %d', 'sep' => '›']
+        : ['home' => 'Home', 'search' => 'Search results: %s', 'archive' => 'Archive', 'page' => 'Page %d', 'sep' => '›'];
+
+    $crumbs = [];
+    $crumbs[] = ['label' => $i18n['home'], 'url' => home_url('/')];
+
+    if (is_singular()) {
+        $post = get_queried_object();
+        if (is_singular('post') && $post) {
+            $cats = get_the_category($post->ID);
+            if (!empty($cats)) {
+                $primary_cat = $cats[0];
+                $ancestors   = array_reverse(get_ancestors($primary_cat->term_id, 'category'));
+                foreach ($ancestors as $aid) {
+                    $term = get_term($aid, 'category');
+                    if ($term && !is_wp_error($term)) {
+                        $crumbs[] = ['label' => $term->name, 'url' => get_term_link($term)];
+                    }
+                }
+                $crumbs[] = ['label' => $primary_cat->name, 'url' => get_term_link($primary_cat)];
+            }
+        } elseif ($post && $post->post_parent) {
+            $ancestors = array_reverse(get_post_ancestors($post));
+            foreach ($ancestors as $aid) {
+                $crumbs[] = ['label' => get_the_title($aid), 'url' => get_permalink($aid)];
+            }
+        }
+        if ($post) {
+            $crumbs[] = ['label' => get_the_title($post), 'url' => ''];
+        }
+    } elseif (is_category() || is_tag() || is_tax()) {
+        $term = get_queried_object();
+        if ($term && !empty($term->taxonomy)) {
+            $ancestors = array_reverse(get_ancestors($term->term_id, $term->taxonomy));
+            foreach ($ancestors as $aid) {
+                $a = get_term($aid, $term->taxonomy);
+                if ($a && !is_wp_error($a)) {
+                    $crumbs[] = ['label' => $a->name, 'url' => get_term_link($a)];
+                }
+            }
+            $crumbs[] = ['label' => $term->name, 'url' => ''];
+        }
+    } elseif (is_search()) {
+        $crumbs[] = ['label' => sprintf($i18n['search'], get_search_query()), 'url' => ''];
+    } elseif (is_author()) {
+        $author = get_queried_object();
+        if ($author) {
+            $crumbs[] = ['label' => $author->display_name, 'url' => ''];
+        }
+    } elseif (is_post_type_archive()) {
+        $obj = get_queried_object();
+        if ($obj && !empty($obj->labels->name)) {
+            $crumbs[] = ['label' => $obj->labels->name, 'url' => ''];
+        }
+    } elseif (is_404()) {
+        $crumbs[] = ['label' => '404', 'url' => ''];
+    } else {
+        return ''; // home, front page — no breadcrumb
+    }
+
+    if (count($crumbs) < 2) {
+        return '';
+    }
+
+    $sep_html = '<span class="ileg-crumbs__sep" aria-hidden="true">' . esc_html($i18n['sep']) . '</span>';
+    $items    = [];
+    $last_i   = count($crumbs) - 1;
+    foreach ($crumbs as $i => $c) {
+        $label = esc_html((string) $c['label']);
+        if ($i === $last_i || empty($c['url'])) {
+            $items[] = '<span class="ileg-crumbs__item ileg-crumbs__item--current" aria-current="page">' . $label . '</span>';
+        } else {
+            $items[] = '<a class="ileg-crumbs__item ileg-crumbs__link" href="' . esc_url($c['url']) . '">' . $label . '</a>';
+        }
+    }
+
+    return '<nav class="ileg-crumbs" aria-label="Breadcrumb">' . implode(' ' . $sep_html . ' ', $items) . '</nav>';
+});
+
+/* =================================================
+ * DYNAMIC COPYRIGHT YEAR
+ * Usage in template parts / blocks: [ileg_year]
+ *   - [ileg_year]                     → 2026
+ *   - [ileg_year since="2024"]        → 2024–2026 (collapses to "2024" before next year)
+ * Uses site timezone via wp_date().
+ * ================================================= */
+add_shortcode('ileg_year', function ($atts) {
+    $atts = shortcode_atts(['since' => ''], $atts, 'ileg_year');
+    $current = (int) wp_date('Y');
+    $since   = (int) $atts['since'];
+
+    if ($since > 0 && $since < $current) {
+        return $since . '&ndash;' . $current;
+    }
+    return (string) $current;
+});
+
+/* =================================================
+ * CONTACT FORM 7 — toast notifications
+ * Loads only when CF7 is active. Listens for CF7's built-in
+ * DOM events (wpcf7mailsent/mailfailed/invalid/spam) and shows
+ * a non-blocking toast in EN or KO based on path/lang.
+ * ================================================= */
+add_action('wp_enqueue_scripts', function () {
+    if (!function_exists('wpcf7_contact_form')) {
+        return;
+    }
+
+    wp_enqueue_script(
+        'ileg-cf7-toast',
+        get_stylesheet_directory_uri() . '/assets/js/cf7-toast.js',
+        [],
+        ileg_asset_ver('/assets/js/cf7-toast.js'),
+        true
+    );
+}, 30);

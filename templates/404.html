@@ -1,0 +1,318 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:html -->
+<style>
+  .page-404 {
+    --p404-accent: #FD593C;
+    --p404-yellow: #FDCD3B;
+    --p404-ink: #16324f;
+    --p404-soft: #fff7e6;
+
+    position: relative;
+    min-height: clamp(520px, 80vh, 820px);
+    padding: clamp(56px, 10vw, 120px) var(--page-gutter-right) clamp(56px, 10vw, 120px) var(--page-gutter-left);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(253, 205, 59, 0.35), transparent 55%),
+      radial-gradient(circle at 88% 82%, rgba(253, 89, 60, 0.18), transparent 55%),
+      linear-gradient(180deg, #ffffff 0%, var(--p404-soft) 100%);
+    overflow: hidden;
+    font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--p404-ink);
+    box-sizing: border-box;
+    margin-top: 0px !important;
+  }
+
+  .page-404 *, .page-404 *::before, .page-404 *::after { box-sizing: inherit; }
+
+  .page-404__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .page-404__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--p404-accent);
+    background: rgba(253, 89, 60, 0.08);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  .page-404__code {
+    font-size: clamp(96px, 22vw, 220px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0;
+    background: linear-gradient(135deg, var(--p404-accent) 0%, #ff8366 60%, var(--p404-yellow) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 8px 24px rgba(253, 89, 60, 0.18);
+  }
+
+  .page-404__title {
+    font-size: clamp(24px, 3.4vw, 36px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--p404-ink);
+  }
+
+  .page-404__tagline {
+    font-size: clamp(15px, 1.6vw, 18px);
+    max-width: 56ch;
+    margin: 0;
+    color: #44546a;
+    line-height: 1.55;
+  }
+
+  .page-404__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .page-404__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+
+  .page-404__btn--primary {
+    background: var(--p404-accent);
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(253, 89, 60, 0.35);
+  }
+
+  .page-404__btn--primary:hover,
+  .page-404__btn--primary:focus-visible {
+    background: #ff6c46;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(253, 89, 60, 0.4);
+    color: #ffffff;
+    outline: none;
+  }
+
+  .page-404__btn--ghost {
+    background: #ffffff;
+    color: var(--p404-accent);
+    border-color: var(--p404-accent);
+  }
+
+  .page-404__btn--ghost:hover,
+  .page-404__btn--ghost:focus-visible {
+    background: var(--p404-accent);
+    color: #ffffff;
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  .page-404__quick {
+    width: 100%;
+    max-width: 720px;
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(22, 50, 79, 0.08);
+    border: 1px solid rgba(22, 50, 79, 0.06);
+  }
+
+  .page-404__quick-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--p404-ink);
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+
+  .page-404__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+  }
+
+  @media (min-width: 720px) {
+    .page-404__links { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .page-404__link {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 12px;
+    color: var(--p404-ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.18s ease, transform 0.18s ease, color 0.18s ease;
+  }
+
+  .page-404__link i {
+    width: 22px;
+    color: var(--p404-accent);
+    text-align: center;
+  }
+
+  .page-404__link:hover,
+  .page-404__link:focus-visible {
+    background: rgba(253, 89, 60, 0.08);
+    color: var(--p404-accent);
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  .page-404__search {
+    margin-top: 1.25rem;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .page-404__search input {
+    flex: 1;
+    border-radius: 999px;
+    border: 1px solid rgba(22, 50, 79, 0.15);
+    padding: 0.7rem 1.1rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--p404-ink);
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .page-404__search input:focus {
+    border-color: var(--p404-accent);
+    box-shadow: 0 0 0 3px rgba(253, 89, 60, 0.15);
+  }
+
+  .page-404__search button {
+    border: none;
+    border-radius: 999px;
+    background: var(--p404-ink);
+    color: #ffffff;
+    padding: 0 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease;
+  }
+
+  .page-404__search button:hover { background: #1f4368; }
+
+  .page-404__decor {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .page-404__decor--tl {
+    top: -40px;
+    left: -40px;
+    width: clamp(160px, 22vw, 280px);
+    height: clamp(160px, 22vw, 280px);
+    background: radial-gradient(circle, var(--p404-yellow) 0%, transparent 70%);
+    filter: blur(8px);
+  }
+
+  .page-404__decor--br {
+    bottom: -60px;
+    right: -60px;
+    width: clamp(180px, 26vw, 320px);
+    height: clamp(180px, 26vw, 320px);
+    background: radial-gradient(circle, var(--p404-accent) 0%, transparent 70%);
+    filter: blur(10px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .page-404__code { animation: page404Float 4s ease-in-out infinite; }
+    @keyframes page404Float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+  }
+</style>
+
+<main class="page-404 alignfull" role="main">
+  <div class="page-404__decor page-404__decor--tl" aria-hidden="true"></div>
+  <div class="page-404__decor page-404__decor--br" aria-hidden="true"></div>
+
+  <div class="page-404__inner">
+    <span class="page-404__eyebrow">
+      <i class="fa-solid fa-compass" aria-hidden="true"></i>
+      Off the map
+    </span>
+
+    <h1 class="page-404__code" aria-label="Error 404">404</h1>
+
+    <h2 class="page-404__title">This stop isn&rsquo;t on our itinerary.</h2>
+
+    <p class="page-404__tagline">
+      The page you&rsquo;re looking for has either flown away or never boarded.
+      Don&rsquo;t worry &mdash; let&rsquo;s get your journey back on track.
+    </p>
+
+    <div class="page-404__ctas">
+      <a class="page-404__btn page-404__btn--primary" href="/" aria-label="Go to the homepage">
+        <i class="fa-solid fa-house" aria-hidden="true"></i>
+        Take Me Home
+      </a>
+      <a class="page-404__btn page-404__btn--ghost" href="/blog/" aria-label="Browse the travel blog">
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        Browse Blog
+      </a>
+    </div>
+
+    <form class="page-404__search" role="search" method="get" action="/" aria-label="Search the site">
+      <label class="screen-reader-text visually-hidden" for="page-404-search">Search</label>
+      <input id="page-404-search" type="search" name="s" placeholder="Search travel guides, tips, destinations&hellip;" autocomplete="off" />
+      <button type="submit" aria-label="Submit search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <div class="page-404__quick">
+      <p class="page-404__quick-title">Or pick a destination</p>
+      <ul class="page-404__links">
+        <li><a class="page-404__link" href="/destination/south-korea/"><i class="fa-solid fa-mountain-sun" aria-hidden="true"></i> South Korea</a></li>
+        <li><a class="page-404__link" href="/destination/japan/"><i class="fa-solid fa-torii-gate" aria-hidden="true"></i> Japan</a></li>
+        <li><a class="page-404__link" href="/destination/thailand/"><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i> Thailand</a></li>
+        <li><a class="page-404__link" href="/travel-intelligence/"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Travel Savvy</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<!-- /wp:html -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

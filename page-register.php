@@ -309,7 +309,11 @@ if ( 'POST' === $_SERVER['REQUEST_METHOD'] && isset( $_POST['frontend_register_n
             <div class="terms-row">
                 <input type="checkbox" id="terms" name="terms" <?php checked( ! empty( $_POST['terms'] ) ); ?>>
                 <label for="terms">
-                    I do agree the <a href="#">Terms and Conditions</a> of this site.
+                    <?php
+                    $terms_page = get_page_by_path( 'terms-and-conditions' );
+                    $terms_url  = $terms_page ? get_permalink( $terms_page ) : home_url( '/terms-and-conditions/' );
+                    ?>
+                    I do agree the <a href="<?php echo esc_url( $terms_url ); ?>" target="_blank" rel="noopener">Terms and Conditions</a> of this site.
                 </label>
             </div>
 

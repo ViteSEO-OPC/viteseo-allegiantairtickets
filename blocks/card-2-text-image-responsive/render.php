@@ -267,12 +267,12 @@ ob_start(); ?>
         <?php if (($buttonText !== '' || $button2Text !== '') && $ctaAlign !== 'hidden'): ?>
           <div class="card-2-text-img-resp__cta-wrap card-2-text-img-resp__cta-wrap--<?= esc_attr($ctaAlign); ?>">
 
-            <?php if ($buttonText !== ''): ?>
+            <?php if ($buttonText !== '' && $buttonUrl !== '' && $buttonUrl !== '#'): ?>
               <?= render_block([
                 'blockName' => 'ilegiants/cta-bounce',
                 'attrs' => [
                   'text' => $buttonText,
-                  'url' => ($buttonUrl ?: '#'),
+                  'url' => $buttonUrl,
                   'accent' => $buttonAccent,
                   'textColor' => $buttonTextCol,
                   'borderColor' => $buttonBorderCol,
@@ -283,14 +283,14 @@ ob_start(); ?>
               ]); ?>
             <?php endif; ?>
 
-            <?php if ($button2Text !== ''):
+            <?php if ($button2Text !== '' && $button2Url !== '' && $button2Url !== '#'):
               $btn2Accent = $button2Accent !== '' ? $button2Accent : $buttonAccent;
               ?>
               <?= render_block([
                 'blockName' => 'ilegiants/cta-bounce',
                 'attrs' => [
                   'text' => $button2Text,
-                  'url' => ($button2Url ?: '#'),
+                  'url' => $button2Url,
                   'accent' => $btn2Accent,
                   'textColor' => $button2TextCol,
                   'borderColor' => $button2BorderCol,

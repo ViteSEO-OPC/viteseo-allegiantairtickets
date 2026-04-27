@@ -180,23 +180,28 @@ for ($i = 0; $i < $count; $i++)
               <h3 class="carousel-blog__card-title"><?php echo esc_html($s['title']); ?></h3><?php endif; ?>
             <?php if (!empty($s['excerpt'])): ?>
               <p class="carousel-blog__excerpt"><?php echo esc_html(wp_trim_words($s['excerpt'], 24)); ?></p><?php endif; ?>
-            <p class="carousel-blog__cta">
-              <?php
-              echo render_block([
-                'blockName' => 'ilegiants/cta-wave-card',
-                'attrs' => [
-                  'text' => __('Read More', 'childtheme'),
-                  'url' => $s['url'] ?? '#',
-                  'context' => 'on-image',
-                  'size' => 'md',
-                  'accent' => '#FD593C'
-                ],
-                'innerBlocks' => [],
-                'innerHTML' => '',
-                'innerContent' => []
-              ]);
+            <?php
+            $slide_url = isset($s['url']) ? trim((string) $s['url']) : '';
+            if ($slide_url !== '' && $slide_url !== '#'):
               ?>
-            </p>
+              <p class="carousel-blog__cta">
+                <?php
+                echo render_block([
+                  'blockName' => 'ilegiants/cta-wave-card',
+                  'attrs' => [
+                    'text' => __('Read More', 'childtheme'),
+                    'url' => $slide_url,
+                    'context' => 'on-image',
+                    'size' => 'md',
+                    'accent' => '#FD593C'
+                  ],
+                  'innerBlocks' => [],
+                  'innerHTML' => '',
+                  'innerContent' => []
+                ]);
+                ?>
+              </p>
+            <?php endif; ?>
           </div>
         </article>
       <?php endforeach; ?>
