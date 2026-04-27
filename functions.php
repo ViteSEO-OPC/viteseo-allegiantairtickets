@@ -183,19 +183,10 @@ add_action('wp_enqueue_scripts', function () {
     }
 }, 20);
 
-// /wp-content/themes/LEAFLET-CHILD-THEME/functions.php
 add_action('wp_enqueue_scripts', function () {
-    // Leaflet core
-    wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], '1.9.4');
-    wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], '1.9.4', true);
-
-    // Font Awesome 6 (solid)
-    wp_enqueue_style(
-        'fa6',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
-        [],
-        '6.5.2'
-    );
+    // Leaflet — registered only; the leaflet-map block enqueues it on demand.
+    wp_register_style('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], '1.9.4');
+    wp_register_script('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], '1.9.4', true);
 });
 
 add_action('after_setup_theme', function () {
@@ -211,8 +202,9 @@ add_action('init', function () {
 });
 
 add_action('wp_enqueue_scripts', function () {
+    // Single Font Awesome enqueue (replaces the prior duplicate handle).
     wp_enqueue_style(
-        'fa-6',
+        'fa6',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
         [],
         '6.5.2'
@@ -992,17 +984,17 @@ function ai_get_seo_page_meta_from_path()
 }
 
 add_filter('pre_get_document_title', function ($title) {
-    if (is_admin()) {
-        return $title;
-    }
+    if (is_admin()) return $title;
+    // Yield to Rank Math when active — single source of truth for SEO.
+    if (class_exists('RankMath') || function_exists('rank_math')) return $title;
     $seo = ai_get_seo_page_meta_from_path();
     return !empty($seo['title']) ? $seo['title'] : $title;
-}, 99);
+}, 1);
 
 add_action('wp_head', function () {
-    if (is_admin()) {
-        return;
-    }
+    if (is_admin()) return;
+    // Yield to Rank Math when active.
+    if (class_exists('RankMath') || function_exists('rank_math')) return;
     $seo = ai_get_seo_page_meta_from_path();
     if (!empty($seo['description'])) {
         echo '<meta name="description" content="' . esc_attr($seo['description']) . '">' . "\n";
@@ -1013,16 +1005,25 @@ add_action('wp_head', function () {
  * SEO: ROBOTS META
  * ================================================= */
 add_action('wp_head', function () {
-    echo '<meta name="robots" content="index, follow">';
-    return;
+    if (class_exists('RankMath') || function_exists('rank_math')) return;
+    echo '<meta name="robots" content="index, follow">' . "\n";
 }, 1);
 
 /* =================================================
  * GLOBAL ROBOTS HEADERS
  * ================================================= */
 add_action('send_headers', function () {
+    if (class_exists('RankMath') || function_exists('rank_math')) return;
     header('X-Robots-Tag: index, follow, archive, snippet', true);
 });
+
+/* =================================================
+ * FONT PRECONNECT — saves ~150 ms TTFB on cold mobile
+ * ================================================= */
+add_action('wp_head', function () {
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>' . "\n";
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+}, 1);
 
 /* =================================================
  * BREADCRUMBS — defensive wrapper usable in block templates

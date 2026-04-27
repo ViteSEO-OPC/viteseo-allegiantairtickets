@@ -7,6 +7,9 @@
  * @var WP_Block $block      Block instance.
  */
 
+wp_enqueue_style('leaflet');
+wp_enqueue_script('leaflet');
+
 // 1. Get attributes
 $heading = $attributes['heading'] ?? 'Sed Do Eiusmod Tempor';
 $desc    = $attributes['description'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';

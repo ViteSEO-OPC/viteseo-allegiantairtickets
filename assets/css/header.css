@@ -558,3 +558,20 @@ body.scrolled #navbar{
   #navbar.navbar-expand-1024 .navbar-collapse{ align-items:center; }
   #navbar.navbar-expand-1024 #navbarMain > .navbar-nav{ margin-top:0; margin-bottom:0; }
 }
+
+/* Bootstrap dropdown toggle when rendered as <button> instead of <a> */
+.navbar-nav button.nav-link{
+  background:transparent;
+  border:0;
+  font-family:inherit;
+  font-size:inherit;
+  line-height:inherit;
+  color:inherit;
+  cursor:pointer;
+  appearance:none;
+}
+.navbar-nav button.nav-link:focus-visible{
+  outline:2px solid rgba(253,89,60,.5);
+  outline-offset:2px;
+  border-radius:4px;
+}

@@ -170,3 +170,12 @@ footer .footer-links a:focus-visible {
 @media (prefers-reduced-motion: reduce){
   .footer-links a, .footer-ico{ transition:none; }
 }
+
+/* Footer link-group titles (moved out of <ul> for valid markup) */
+.footer-links__title {
+  color: #FD593C;
+  margin: 0 0 .5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
